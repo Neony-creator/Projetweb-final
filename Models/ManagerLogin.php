@@ -3,25 +3,57 @@ session_start();
 require_once('ManagerBdd.php');
 
 
-
 class ManagerLogin extends ManagerBdd
 {
     public function getLog()
     {
-        $passwordpost = $_POST['password'];
-        $loginpost = $_POST['email'];
-        $bdd=this->bdd();
 
-        $query = $bdd->prepare('SELECT password, login FROM user where password= :password and login=:login;');
-        $query->executeexecute([
-            'password' => $_SESSION['hash'],
-            'login' => $_SESSION['hash'],
-            ]);
+        $bdd=self::bdd();
 
-        $results = $query->fetchALL(PDO::FETCH_OBJ);
+        $query = $bdd->prepare("SELECT * FROM users ");
+        $query->execute();
+
+        $results = $query->fetchAll(PDO::FETCH_OBJ);
         return $results;
+
     }
 }
+
+$a = new ManagerLogin();
+$a=$a->getLog();
+
+foreach ($a as $aa)
+{echo $aa->login;
+    echo $aa->id_user;
+}
+
+
+
+//session_start();
+//require_once('ManagerBdd.php');
+
+
+//class ManagerLogin extends ManagerBdd
+//{
+//    public function getLog()
+//    {
+//        $hash = $_SESSION['hash'];
+//        $login = $_SESSION['login'];
+//        $bdd = self::bdd();
+//
+//        $query = $bdd->prepare("SELECT password, login FROM users where password= '$hash' and login='$login'");
+//        $query->execute();
+//
+//        $results = $query->fetchALL(PDO::FETCH_OBJ);
+//        return $results;
+//    }
+//}
+//
+//$a = new ManagerLogin();
+//$a->getLog();
+//echo $a->login;
+
+
 
 
 

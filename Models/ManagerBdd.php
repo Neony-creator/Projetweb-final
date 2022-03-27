@@ -24,8 +24,9 @@ class ManagerBdd
         else
         { echo "<script>alert('error')</script>";
             die('erreur');
-    }
+        }
 
+    }
 }
 
 /*Erreur de connexion à false avant connexion*/
