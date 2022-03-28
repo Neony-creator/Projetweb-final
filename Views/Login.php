@@ -89,11 +89,12 @@
             <form action="/Controllers/ControllerLogin.php" method="post">
                 <div id="email" class="form-group col-3 mx-auto">
                     <label for="email">Identifiant</label>
-                    <input type="email" name="email" class="form-control " id="email" aria-describedby="emailHelp" placeholder="Entrez votre indentifiant">
+                    <input type="email"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" name="email" class="form-control " id="email" aria-describedby="emailHelp" placeholder="Entrez votre identifiant">
                 </div>
                 <div id="mdp" class="form-group col-3 mx-auto">
                     <label for="password1">Mot de passe</label>
-                    <input type="password" name="password" class="form-control" id="password1" placeholder="Password" onkeypress="verifierCaracteres(event); return false;">
+                    <input type="password"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                           title="Commentaire au choix"  name="password" class="form-control" id="password1" placeholder="Mot de passe" onkeypress="verifierCaracteres(event) ; return false; ">
                     <div id="button">
                         <button type="submit" class="btn btn-lg btn-dark">Valider</button>
                     </div>
