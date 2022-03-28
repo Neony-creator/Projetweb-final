@@ -178,6 +178,14 @@
             <div class="col-6 col-md-4"></div>
             <div class="col-6 col-md-4"><input id="IdUser" type="text" class="form-control" ></div>
 
+          <div class="col-6 col-md-4">Rôle :</div>
+          <div class="col-6 col-md-4"></div>
+          <div class="col-6 col-md-4">Permission :</div>
+
+          <div class="col-6 col-md-4"><input id="PrenomUser" type="text" class="form-control" ></div>
+          <div class="col-6 col-md-4"></div>
+          <div class="col-6 col-md-4"><input id="IdUser" type="text" class="form-control" ></div>
+
             <div class="col-6 col-md-4">Etablissement :</div>
             <div class="col-6 col-md-4"></div>
             <div class="col-6 col-md-4">Mot de passe :</div>
