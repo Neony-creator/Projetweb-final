@@ -9,6 +9,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="/Public/css/login.css" />
     <title>PROJET WEB, groupe 4</title>
+    <script src="/Public/js/log.js"> </script>
 </head>
 
 <section class="top">
@@ -81,7 +82,6 @@
 <div class="row ">
 
 <body>
-
 <!-- log in mdp -->
 <div id="all" >
     <div class="container-md ">
@@ -93,7 +93,7 @@
                 </div>
                 <div id="mdp" class="form-group col-3 mx-auto">
                     <label for="password1">Mot de passe</label>
-                    <input type="password" name="password" class="form-control" id="password1" placeholder="Password">
+                    <input type="password" name="password" class="form-control" id="password1" placeholder="Password" onkeypress="verifierCaracteres(event); return false;">
                     <div id="button">
                         <button type="submit" class="btn btn-lg btn-dark">Valider</button>
                     </div>
