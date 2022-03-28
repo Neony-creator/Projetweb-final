@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="/Public/css/utilisateur_gestion.css" />
     <link rel="stylesheet" href="/Public/fontawesome/css/all.min.css">
     <title>Utilisateur - PROJET WEB</title>
+    <script src="/Public/js/UtilisateurGestion.js"> </script>
 </head>
 
 <section class="top">
@@ -27,12 +28,9 @@
     </div>
 
     <!-- Titre -->
-    <center>
-
         <div id="title">
             <h1>Titre</h1>
         </div>
-    </center>
 
 </section>
 
@@ -83,13 +81,13 @@
 
 
                 <div class="form-group">
-                    <label for="Nom de l'étudiant">Nom de l'étudiant</label>
-                    <input type="text" class="form-control" id="Nom de l'étudiant" placeholder="RIGOT">
+                    <label for="NomEtudiant">Nom de l'étudiant</label>
+                    <input type="text" class="form-control" id="NomEtudiant" placeholder="RIGOT" onkeypress="verifierCaracteres(event); return false;>
                 </div>
 
                 <div class="form-group">
-                    <label for="Prénom de l'etudiant">Prénom de l'étudiant</label>
-                    <input type="text" class="form-control" id="Prénom de l'etudiant" placeholder="Jane">
+                    <label for="PrenomEtudiant">Prénom de l'étudiant</label>
+                    <input type="text" class="form-control" id="PrenomEtudiant" placeholder="Jane" onkeypress="verifierCaracteres(event); return false;>
                 </div>
 
                 <div class="form-group">
@@ -127,12 +125,12 @@
 
                 <div class="form-group">
                     <label for="Identifiant">Identifiant</label>
-                    <input type="text" class="form-control" id="Identifiant" placeholder="J.Rigot">
+                    <input type="text" class="form-control" id="Identifiant" placeholder="J.Rigot" onkeypress="verifierCaracteres(event); return false;>
                 </div>
 
                 <div class="form-group">
                     <label for="Mot de passe">Mot de passe</label>
-                    <input type="text" class="form-control" id="Mot de passe" placeholder="cesi1234">
+                    <input type="text" class="form-control" id="Mot de passe" placeholder="cesi1234" onkeypress="verifierCaracteres(event); return false;>
                 </div>
 
 
