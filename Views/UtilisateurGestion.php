@@ -138,51 +138,81 @@
     </div>
 </div>
 
-<div class="bubble">
-    <table>
-        <tr class="n">
-            <td colspan="2"><h3>Utilisateur</h3></td>
-            <form>
-        <tr class="n">
-            <td colspan="2">
-                <label for = "Nom" class="gauche"> Nom </label>
-                <label for = "Promotion" class="droite"> Promotion </label><br/>
-                <input class="g" type="text" id="Nom" name="nom" required minlength="4" maxlength="8" size="10"/>
-                <select class="d" id="Promotion" class="form-control">
-                    <option value="">Liste de choix...</option>
-                    <option value="">A1</option>
-                    <option value="">A2</option>
-                    <option value="">A3</option>
-                    <option value="">A4</option>
-                    <option value="">A5</option>
-                </select><br/>
-                <label class="gauche"> Prenom </label>
-                <label class="droitee"> Identifiant </label><br/>
-                <input class="g" type="text" id="prenom" name="prenom" required minlength="4" maxlength="8" size="10"/>
-                <input class="d" type="text" id="identifiant" name="identifiant" required minlength="4" maxlength="8" size="10"/><br/>
-                <label class="gauche"> Etablisement </label>
-                <label class="droiteee"> Mot de passe </label><br/>
-                <select class="g" id="Etablissement">
-                    <option value="">Liste de choix...</option>
-                    <option value="">Strasbourg</option>
-                    <option value="">Nancy</option>
-                    <option value="">Paris</option>
-                </select>
-                <input class="dd" type="text" id="motdepasse" name="motdepasse" required minlength="4" maxlength="8" size="10"/><br/>
-                <input class="valider" type="submit" value="Valider la modification" >
-                <input class="creer" type="submit" value="Creer un nouvel etudiant" >
-                <input class="supprimer" type="submit" value="Supprimer" >
-            </td>
-        </tr>
-        <tr class="n">
-            <td colspan="2"><h3>Statistique</h3><br>
-                Etat de la fiche de validation :<br><br> Etat de la fiche de stage :</td>
-        </tr>
-        </form>
-        </tr>
-    </table>
-    <br/>
+<div class="container" id="MegaBox">
+  <div class="row">
+    <div id="titreUser" class="col-md-12 border border-dark">
+         <h3>Utilisateur </h3>
+    </div>
+
+
+
+    <div class="col-md-12 border border-top-0 border-dark">
+        <div id="box">
+          <div class="row">
+            <div class="col-6 col-md-4">Nom :</div>
+            <div class="col-6 col-md-4"></div>
+            <div class="col-6 col-md-4">Promotion :</div>
+
+            <div class="col-6 col-md-4"><input id="NomUser" type="text" class="form-control" ></div>
+            <div class="col-6 col-md-4"></div>
+            <div class="col-6 col-md-4">
+                 <div class="btn-group" role="group">
+                    <button id="btnGroupDrop1" type="button" class="btn btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                      Liste de choix...
+                    </button>
+                        <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                             <li><a class="dropdown-item" href="#">A1</a></li>
+                             <li><a class="dropdown-item" href="#">A2</a></li>
+                             <li><a class="dropdown-item" href="#">A3</a></li>
+                             <li><a class="dropdown-item" href="#">A4</a></li>
+                             <li><a class="dropdown-item" href="#">A5</a></li>
+                         </ul>
+                </div>
+           </div>
+
+           <div class="col-6 col-md-4">Prénom :</div>
+            <div class="col-6 col-md-4"></div>
+            <div class="col-6 col-md-4">Identifiant :</div>
+
+            <div class="col-6 col-md-4"><input id="PrenomUser" type="text" class="form-control" ></div>
+            <div class="col-6 col-md-4"></div>
+            <div class="col-6 col-md-4"><input id="IdUser" type="text" class="form-control" ></div>
+
+            <div class="col-6 col-md-4">Etablissement :</div>
+            <div class="col-6 col-md-4"></div>
+            <div class="col-6 col-md-4">Mot de passe :</div>
+
+            <div class="col-6 col-md-4" id="test">
+                 <div class="btn-group" role="group">
+                    <button id="btnGroupDrop1" type="button" class="btn btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                      Liste de choix...
+                    </button>
+                        <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                             <li><a class="dropdown-item" href="#">Strasbourg</a></li>
+                             <li><a class="dropdown-item" href="#">Nancy</a></li>
+                             <li><a class="dropdown-item" href="#">Paris</a></li>
+                         </ul>
+                </div>
+           </div>
+           <div class="col-6 col-md-4"></div>
+           <div class="col-6 col-md-4"><input id="MdpUser" type="text" class="form-control" ></div>
+            <div id="button1" class="col-6 col-md-4"><button type="button" class="btn btn-lg btn-secondary">Valider la modification</button></div>
+            <div id="button2" class="col-6 col-md-4"><button type="button" class="btn btn-lg btn-secondary">Créer un nouvel étudiant</button></div>
+            <div id="button2" class="col-6 col-md-4"><button type="button" class="btn btn-lg btn-secondary">Supprimer</button></div>
+            <br>
+        </div>
+    </div>
+
+
+
+    <div id="box2" class="col-md-12 border-top border-dark">
+      <h3>Statistique</h3><br>
+        <p>Etat de la fiche de validation :<br><br> Etat de la fiche de stage :</p>
+    </div>
+  </div>
 </div>
+</div>
+
 
 
 <!-- Bootstrap Bundle with Popper -->

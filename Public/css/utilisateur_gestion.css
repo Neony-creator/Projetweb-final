@@ -120,3 +120,45 @@ td{
     margin-left: 45px;
 }
 
+
+
+#titreUser{
+    padding-left: 2em;
+}
+
+#box{
+    padding: 2em;
+}
+
+#box2{
+    padding: 2em;
+}
+
+#test{
+    padding-bottom: 1em;
+}
+
+#MegaBox{
+    padding-top: 2em;
+}
+
+@media (max-width: 480px) {
+    .recherche {
+        padding-top: 2em;
+        float : none;
+        width: 100%;
+    }
+    #button1{
+        float : none;
+        width: 100%;
+        padding-top: 2em;
+    }
+    #button2{
+        float : none;
+        width: 100%;
+    }
+    #button3{
+        float : none;
+        width: 100%;
+    }
+}
