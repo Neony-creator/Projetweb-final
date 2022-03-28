@@ -100,9 +100,9 @@ if (!$error) {
 
 <!-- Body -->
 
-
 <body>
-<div class="tout">
+
+
     <div class="recherche">
         <div class="container">
             <h2>Rechercher</h2>
@@ -170,31 +170,19 @@ if (!$error) {
             </form>
         </div>
     </div>
+
+
     <div class="entreprise">
 
-        <div class="container-fluid">
-            <div class="row border border-dark border-2">
-                <div class="col-4 border-end border-dark border-2">
-                    <p class=" title h1 text-decoration-underline" > Entreprise : </p>
-                    <article class="textnormale h5">
-                        <h5>Secteur d'activité :</h5>
-                        <h5>Ville :</h5>
-                        <div id="title1"><h5>Mettre une Note :</h5></div>
-                        <div class="etoile">
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star"></span>
-                            <span class="fa fa-star"></span>
-                        </div>
-                    </article>
-                </div>
-                <div class="col-lg-6 bor ">
-                    <article class="textnormale h5 lh-base">
-                        <h5>Nombre de stagaire déja embauché :</h5>
-                        <div id="title2"> <h5>Evaluation des stagiaires :</h5> </div>
-                        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-                        <div class="note">
+            <div class="container-fluid">
+                <?php foreach ($results as $e) : ?>
+                <div class="row border border-dark border-2">
+                    <div class="col-4 border-end border-dark border-2">
+                        <p class=" title h2 text-decoration-underline" > Entreprise : <?= $e->company_name ?> </p>
+                        <article class="textnormale h5">
+                            <h5>Secteur d'activité : <?= $e->sector_of_activity ?></h5>
+                            <h5>Ville : <?= $e->Town ?></h5>
+                            <div id="title1"><h5>Mettre une Note :</h5></div>
                             <div class="etoile">
                                 <span class="fa fa-star checked"></span>
                                 <span class="fa fa-star checked"></span>
@@ -202,19 +190,33 @@ if (!$error) {
                                 <span class="fa fa-star"></span>
                                 <span class="fa fa-star"></span>
                             </div>
-                        </div>
-                        <div id="blocktxt1">
-                            <h5>Confiance du pilote de promotion :</h5>
-                            <h5>Adresse mail :</h5>
-                        </div>
-                    </article>
+                        </article>
+                    </div>
+                    <div class="col-lg-6 bor ">
+                        <article class="textnormale h5 lh-base">
+                            <h5>Nombre de stagaire déja embauché : <?= $e->number_of_trainees ?></h5>
+                            <div id="title2"> <h5>Evaluation des stagiaires :</h5> </div>
+                            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+                            <div class="note">
+                                <div class="etoile">
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star"></span>
+                                    <span class="fa fa-star"></span>
+                                </div>
+                            </div>
+                            <div id="blocktxt1">
+                                <h5>Confiance du pilote de promotion : <?= $e->trust_of_pilot></h5>
+                                <h5>Adresse mail :</h5>
+                            </div>
+                        </article>
+                    </div>
                 </div>
-            </div>
-
+                <br>
+            <?php endforeach; ?>
         </div>
     </div>
-</div>
-
 
 
 
