@@ -14,7 +14,7 @@
     }
 
 if (!$error) {
-    $query = $bdd->prepare('SELECT  company_name, sector_of_activity, number_of_trainees, Town, evaluation_of_trainees, trust_of_pilot FROM company NATURAL JOIN location NATURAL JOIN evaluate;');
+    $query = $bdd->prepare('SELECT  company_name, mail, sector_of_activity, number_of_trainees, Town, evaluation_of_trainees, trust_of_pilot FROM company NATURAL JOIN location NATURAL JOIN evaluate;');
     $query->execute();
     $results = $query->fetchALL(PDO::FETCH_OBJ);
 }
@@ -177,38 +177,30 @@ if (!$error) {
             <div class="container-fluid">
                 <?php foreach ($results as $e) : ?>
                 <div class="row border border-dark border-2">
-                    <div class="col-4 border-end border-dark border-2">
+                    <div class="col-5 border-end border-dark border-2">
                         <p class=" title h2 text-decoration-underline" > Entreprise : <?= $e->company_name ?> </p>
                         <article class="textnormale h5">
                             <h5>Secteur d'activité : <?= $e->sector_of_activity ?></h5>
                             <h5>Ville : <?= $e->Town ?></h5>
-                            <div id="title1"><h5>Mettre une Note :</h5></div>
-                            <div class="etoile">
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star"></span>
-                                <span class="fa fa-star"></span>
-                            </div>
+
+                            <form>
+                                <label for="Note">Mettre une note</label>
+                                1 <input type = "radio" id="Note" name = "sat" value = "1">
+                                2 <input type = "radio" id="Note" name = "sat" value = "2">
+                                3 <input type = "radio" id="Note" name = "sat" value = "3">
+                                4 <input type = "radio" id="Note" name = "sat" value = "4">
+                                5 <input type = "radio" id="Note" name = "sat" value = "5">
+                                <input type="submit" id="submit" value="Soumettre">
+                            </form>
                         </article>
                     </div>
                     <div class="col-lg-6 bor ">
                         <article class="textnormale h5 lh-base">
                             <h5>Nombre de stagaire déja embauché : <?= $e->number_of_trainees ?></h5>
-                            <div id="title2"> <h5>Evaluation des stagiaires :</h5> </div>
-                            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-                            <div class="note">
-                                <div class="etoile">
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star"></span>
-                                    <span class="fa fa-star"></span>
-                                </div>
-                            </div>
+                            <h5>Note des stagiaire : <?= $e->evaluation_of_trainees ?></h5>
                             <div id="blocktxt1">
                                 <h5>Confiance du pilote de promotion : <?= $e->trust_of_pilot ?></h5>
-                                <h5>Adresse mail :</h5>
+                                <h5>Adresse mail : <?= $e->mail?></h5>
                             </div>
                         </article>
                     </div>
