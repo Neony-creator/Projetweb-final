@@ -9,6 +9,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="/Public/css/postuler.css" />
     <title>Postuler - PROJET WEB</title>
+    <script src="/Public/js/postuler.js"> </script>
 </head>
 
 <section class="top">
@@ -28,7 +29,7 @@
     <!-- Titre -->
 
     <div id="title">
-        <h1>Titre</h1>
+        <h1>CESI-TON-STAGE</h1>
     </div>
 
 
@@ -82,7 +83,7 @@
 
                 <td>
                     <label for="mail"></label>
-                    <input id= mail type = "email" placeholder="A :">
+                    <input id= "mail" type = "email" placeholder="A :">
                 </td>
             </tr>
             <tr>
