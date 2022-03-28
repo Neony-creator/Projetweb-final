@@ -26,11 +26,9 @@
     </div>
 
     <!-- Titre -->
-    <center>
         <div id="title">
             <h1>Titre</h1>
         </div>
-    </center>
 
 </section>
 
@@ -85,7 +83,7 @@
     <div class="row">
         <!-- Image 1 -->
         <div id="image1" class="col-sm">
-            <img src="/Public/file/ex.png" alt="image stage" title="Qu'est ce qu'il est beau quand même !"/>
+            <img src="Public/file/ex.jpg" alt="image stage" title="Qu'est ce qu'il est beau quand même !"/>
         </div>
         <!-- texte -->
         <div class="col-sm">
