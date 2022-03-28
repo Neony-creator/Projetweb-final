@@ -1,4 +1,24 @@
 <!doctype html>
+<?php
+    $dsn = 'mysql:dbname=projetweb;localhost';                /*Chaine de connexion avec IP et BDD */
+    $username_bdd = "root";                                                 /*Nom d'utilisateur pour MySQL */
+    $password_bdd = "cesi";                                               /*Mot de passe pour MySQL*/
+    $error = false;                                                         /*Erreur de connexion à false avant connexion*/
+
+    try {                                                                   /*Tente une connexion...*/
+        $bdd = new PDO($dsn, $username_bdd, $password_bdd);                 /*Creation objet PDO et init de la connexion*/
+        $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);      /*Définition de toutes erreurs en tant qu'Exception*/
+    } catch(PDOException $e) {                                              /*Si erreur attrapée*/
+        $error = $e->getMessage();                                          /*Stock le msg de l'erreur dans error*/
+        echo $error;
+    }
+
+if (!$error) {
+    $query = $bdd->prepare('SELECT  company_name, sector_of_activity, number_of_trainees, Town, evaluation_of_trainees, trust_of_pilot FROM company NATURAL JOIN location NATURAL JOIN evaluate;');
+    $query->execute();
+    $results = $query->fetchALL(PDO::FETCH_OBJ);
+}
+?>
 <html lang="en">
 <head>
     <!-- Required meta tags -->
@@ -15,7 +35,7 @@
 <section>
     <!-- Logo -->
     <div id="logo">
-        <p> <img src="assets/file/logo.png" alt="logo cesi" title="Qu'est ce qu'il est beau quand même !"/> </p>
+        <p> <img src="/Public/file/logo.png" alt="logo cesi" title="Qu'est ce qu'il est beau quand même !"/> </p>
     </div>
 
     <!-- Bouton Wish-list -->
