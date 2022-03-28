@@ -1,1 +1,76 @@
+#title{
+
+    padding : 1em;
+}
+
+
+#WL
+{
+    float: right;
+    padding-right: 1em;
+    padding-top: 1em;
+}
+
+
+#logo{
+    float: left;
+    padding-left: 1em;
+    padding-top: 1em;
+
+}
+
+#navigbar{
+    clear:left;
+}
+
+#mynavbar{
+    justify-content:center;
+}
+
+
+#image1 {
+    padding-top: 5em;
+    object-fit: contain;
+    height:100%;
+    width: 100%;
+}
+
+#coltxt{
+
+    padding-top: 5em;
+
+}
+
+#postule {
+    text-decoration: underline;
+    margin: 15px;
+    padding: 15px;
+}
+
+form table {
+    width: 100%;
+    border-spacing : 5px 10px;
+}
+
+
+form input,
+form textarea {
+    width: 96%;
+
+    margin-bottom: 1%;
+    margin-left: 1%;
+
+}
+@media (max-width: 480px) {
+    #saisir{
+
+        height: 90%;
+    }
+}
+
+form button {
+    margin: 30px;
+    float: right;
+}
+
 
