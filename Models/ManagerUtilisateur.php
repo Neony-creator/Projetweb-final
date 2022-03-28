@@ -9,10 +9,12 @@ class ManagerUtilisateur extends ManagerBdd
     {
 
         $bdd = self::bdd();
-        $query = $bdd->prepare("SELECT password,login,id_user,permission FROM users natural join define where login=?");
+        $query = $bdd->prepare("SELECT first_name, user_name, facility, login, password, roles, permission, promotion from users 
+        NATURAL join supervised NATURAL join promotion NATURAL join define NATURAL join roles; where first_name=? or user_name=? or facility=? or 
+        login=?or password=? or roles=? or permission=? or promotion=? ");
         $query->execute(array($login));
 
-        $results = $query->fetch(PDO::FETCH_OBJ);
+        $results = $query->fetchAll(PDO::FETCH_OBJ);
         return $results;
 
     }

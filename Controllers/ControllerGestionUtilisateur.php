@@ -2,16 +2,16 @@
 
 class ControllerGestionUtilisateur
 {
-    public function CreateUtilisateur {
+    public function CreateUtilisateur() {
 
     }
-    public function DeleteUtilisateur {
+    public function DeleteUtilisateur () {
 
     }
-    public function UpdateUtilisateur {
+    public function UpdateUtilisateur () {
 
     }
-    public function ReadUtilisateur {
+    public function ReadUtilisateur () {
 
     }
 //$a = new ManagerLogin();

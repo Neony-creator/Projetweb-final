@@ -72,71 +72,71 @@
 <!-- Body -->
 
 
-<body>
-<div class="recherche">
-    <div class="container">
-        <h2>Rechercher</h2>
-        <form>
-            <fieldset>
+    <body>
+    <div class="recherche">
+        <div class="container">
+            <h2>Rechercher</h2>
+            <form>
+                <fieldset>
 
 
-                <label>Nom de l'étudiant</label>
-                <input id="NomEtudiant" type="text" class="form-control" placeholder="RIGOT" form-group">
-                <label>Prénom de l'étudiant</label>
-                <input type="text" class="form-control" id="PrenomEtudiant" placeholder="Jane" onkeypress="verifierCaracteres(event); return false;>
-                <div class="form-group">
+                    <label>Nom de l'étudiant</label>
+                    <input id="NomEtudiant" type="text" class="form-control" placeholder="RIGOT" form-group">
+                    <label>Prénom de l'étudiant</label>
+                    <input type="text" class="form-control" id="PrenomEtudiant" placeholder="Jane" onkeypress="verifierCaracteres(event); return false;>
+                    <div class="form-group">
 
-                <label for="Role">Role</label>
-                <select id="Role" class="form-control">
-                    <option value="">Liste de choix...</option>
-                    <option value="">Pilote</option>
-                    <option value="">Delegue</option>
-                    <option value="">Etudiant</option>
-                </select>
-
-                <div class="form-group">
-                    <label for="Etablissement">Etablisement</label>
-                    <select id="Etablissement" class="form-control">
+                    <label for="Role">Role</label>
+                    <select id="Role" class="form-control">
                         <option value="">Liste de choix...</option>
-                        <option value="">Strasbourg</option>
-                        <option value="">Nancy</option>
-                        <option value="">Paris</option>
-
+                        <option value="">Pilote</option>
+                        <option value="">Delegue</option>
+                        <option value="">Etudiant</option>
                     </select>
-                </div>
-                <div class="form-group">
-                    <label for="Promotion">Promotion</label>
-                    <select id="Promotion" class="form-control">
-                        <option value="">Liste de choix...</option>
-                        <option value="">A1</option>
-                        <option value="">A2</option>
-                        <option value="">A3</option>
-                        <option value="">A4</option>
-                        <option value="">A5</option>
 
-                    </select>
-                </div>
+                    <div class="form-group">
+                        <label for="Etablissement">Etablisement</label>
+                        <select id="Etablissement" class="form-control">
+                            <option value="">Liste de choix...</option>
+                            <option value="">Strasbourg</option>
+                            <option value="">Nancy</option>
+                            <option value="">Paris</option>
 
-                <div class="form-group">
-                    <label for="Identifiant">Identifiant</label>
-                    <input type="text" class="form-control" id="Identifiant" placeholder="J.Rigot" onkeypress="verifierCaracteres(event); return false;>
-                </div>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="Promotion">Promotion</label>
+                        <select id="Promotion" class="form-control">
+                            <option value="">Liste de choix...</option>
+                            <option value="">A1</option>
+                            <option value="">A2</option>
+                            <option value="">A3</option>
+                            <option value="">A4</option>
+                            <option value="">A5</option>
 
-                <div class="form-group">
-                    <label for="Mot de passe">Mot de passe</label>
-                    <input type="text" class="form-control" id="Mot de passe" placeholder="cesi1234" onkeypress="verifierCaracteres(event); return false;>
-                </div>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Identifiant">Identifiant</label>
+                        <input type="text" class="form-control" id="Identifiant" placeholder="J.Rigot" onkeypress="verifierCaracteres(event); return false;>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Mot de passe">Mot de passe</label>
+                        <input type="text" class="form-control" id="Mot de passe" placeholder="cesi1234" onkeypress="verifierCaracteres(event); return false;>
+                    </div>
 
 
 
 
-                <br>
-                <input type="submit" id="submit" value="Soumettre">
+                    <br>
+                    <input type="submit" id="submit" value="Soumettre">
 
-            </fieldset>
-        </form>
+                </fieldset>
+            </form>
+        </div>
     </div>
-</div>
 
 <div class="container" id="MegaBox">
   <div class="row">
@@ -178,14 +178,6 @@
             <div class="col-6 col-md-4"></div>
             <div class="col-6 col-md-4"><input id="IdUser" type="text" class="form-control" ></div>
 
-          <div class="col-6 col-md-4">Rôle :</div>
-          <div class="col-6 col-md-4"></div>
-          <div class="col-6 col-md-4">Permission :</div>
-
-          <div class="col-6 col-md-4"><input id="PrenomUser" type="text" class="form-control" ></div>
-          <div class="col-6 col-md-4"></div>
-          <div class="col-6 col-md-4"><input id="IdUser" type="text" class="form-control" ></div>
-
             <div class="col-6 col-md-4">Etablissement :</div>
             <div class="col-6 col-md-4"></div>
             <div class="col-6 col-md-4">Mot de passe :</div>
@@ -204,6 +196,16 @@
            </div>
            <div class="col-6 col-md-4"></div>
            <div class="col-6 col-md-4"><input id="MdpUser" type="text" class="form-control" ></div>
+
+           <div class="col-6 col-md-4">Rôle :</div>
+           <div class="col-6 col-md-4"></div>
+           <div class="col-6 col-md-4">Permission :</div>
+
+           <div class="col-6 col-md-4"><input id="roleUser" type="text" class="form-control" ></div>
+           <div class="col-6 col-md-4"></div>
+           <div class="col-6 col-md-4"><input id="permission" type="text" class="form-control" ></div>
+           <br><br><br>
+
             <div id="button1" class="col-6 col-md-4"><button type="button" class="btn btn-lg btn-secondary">Valider la modification</button></div>
             <div id="button2" class="col-6 col-md-4"><button type="button" class="btn btn-lg btn-secondary">Créer un nouvel étudiant</button></div>
             <div id="button2" class="col-6 col-md-4"><button type="button" class="btn btn-lg btn-secondary">Supprimer</button></div>

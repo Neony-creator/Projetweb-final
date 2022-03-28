@@ -36,5 +36,5 @@ class ManagerBdd
 }
 ?>
 
-/*Erreur de connexion à false avant connexion*/
+
 
