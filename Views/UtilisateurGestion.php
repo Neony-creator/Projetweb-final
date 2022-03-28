@@ -8,7 +8,7 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="/Public/css/utilisateur_gestion.css" />
-    <link rel="stylesheet" href="/Public/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="/Public/css/fontawesomecss/all.css">
     <title>Utilisateur - PROJET WEB</title>
 </head>
 
@@ -150,13 +150,15 @@
     <table>
         <tr class="n">
             <td colspan="2"><h3>Utilisateur</h3></td>
-            <form>
+
+        <form method="post"></form>
         <tr class="n">
             <td colspan="2">
                 <label for = "Nom" class="gauche"> Nom </label>
                 <label for = "Promotion" class="droite"> Promotion </label><br/>
                 <input class="g" type="text" id="Nom" name="nom" required minlength="4" maxlength="8" size="10"/>
-                <select class="d" id="Promotion" class="form-control">
+
+                <select class="d form-control" id="Promotion">
                     <option value="">Liste de choix...</option>
                     <option value="">A1</option>
                     <option value="">A2</option>
@@ -164,13 +166,13 @@
                     <option value="">A4</option>
                     <option value="">A5</option>
                 </select><br/>
-                <label class="gauche"> Prenom </label>
-                <label class="droitee"> Identifiant </label><br/>
+                <label for="prenom" class="gauche"> Prenom </label>
+                <label for="identifiant" class="droitee"> Identifiant </label><br/>
                 <input class="g" type="text" id="prenom" name="prenom" required minlength="4" maxlength="8" size="10"/>
                 <input class="d" type="text" id="identifiant" name="identifiant" required minlength="4" maxlength="8" size="10"/><br/>
                 <label class="gauche"> Etablisement </label>
-                <label class="droiteee"> Mot de passe </label><br/>
-                <select class="g" id="Etablissement" class="form-control">
+                <label for="motdepasse" class="droiteee"> Mot de passe </label><br/>
+                <select class="g form-control" id="Etablissement">
                     <option value="">Liste de choix...</option>
                     <option value="">Strasbourg</option>
                     <option value="">Nancy</option>
@@ -186,8 +188,8 @@
             <td colspan="2"><h3>Statistique</h3><br>
                 Etat de la fiche de validation :<br><br> Etat de la fiche de stage :</td>
         </tr>
-        </form>
-        </tr>
+
+
     </table>
     <br/>
 </div>
