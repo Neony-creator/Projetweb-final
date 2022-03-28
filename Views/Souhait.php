@@ -39,7 +39,7 @@ $results = $query->fetchALL(PDO::FETCH_OBJ);
 <section class="top">
     <!-- Logo -->
     <div id="logo">
-        <p> <img src="assets/file/logo.png" alt="logo cesi" title="Qu'est ce qu'il est beau quand même ! "/> </p>
+        <p> <img src="/Public/file/logo.png" alt="logo cesi" title="Qu'est ce qu'il est beau quand même ! "/> </p>
     </div>
 
     <!-- Bouton Wish-list -->
@@ -51,11 +51,9 @@ $results = $query->fetchALL(PDO::FETCH_OBJ);
     </div>
 
     <!-- Titre -->
-    <center>
-        <div id="title">
-            <h1>Titre</h1>
-        </div>
-    </center>
+    <div id="title">
+        <h1>Titre</h1>
+    </div>
 
 </section>
 
@@ -114,14 +112,15 @@ $results = $query->fetchALL(PDO::FETCH_OBJ);
                 <tr>
                     <td>Entreprise : <?= $result-> company_name ?><br/> Competences : <?= $result->skills ?><br/> Note de l'entreprise : <?= $result->trust_of_pilot ?><br/> Secteur d'activite : <?= $result->sector_of_activity ?><br/> Ville : <?= $result-> Town ?> <br/> Duree du stage : <?= $result->internship_duration ?> <br/> Date de debut :<?= $result->start_date ?> <br/> Base de remuneration : <?= $result-> remuneration_basis ?> <br/> Nombre de place offertes : <?= $result-> number_of_places_offered  ?> </td>
                     <td>En quoi consiste ce stage ?<br/> <?= $result-> description ?> <br/><!--<br/><br/><br/><br/><br/><br/><br/>-->
-                        <label>Note : </label>
-                        <from>
-                            1 <input type = "radio" name = "sat" value = "1">
-                            2 <input type = "radio" name = "sat" value = "2">
-                            3 <input type = "radio" name = "sat" value = "3">
-                            4 <input type = "radio" name = "sat" value = "4">
-                            5 <input type = "radio" name = "sat" value = "5">
-                        </from>
+                        <form>
+                            <label for="Note">Mettre une note</label>
+                            1 <input type = "radio" id="Note" name = "sat" value = "1">
+                            2 <input type = "radio" id="Note" name = "sat" value = "2">
+                            3 <input type = "radio" id="Note" name = "sat" value = "3">
+                            4 <input type = "radio" id="Note" name = "sat" value = "4">
+                            5 <input type = "radio" id="Note" name = "sat" value = "5">
+                            <input type="submit" id="submit" value="Soumettre">
+                        </form>
                     </td>
                 </tr>
             </table>
@@ -142,8 +141,8 @@ $results = $query->fetchALL(PDO::FETCH_OBJ);
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
 -->
 <br><br><br>
-<script src="assets/vendors/jquery/jquery-3.6.0.min.js"></script>
-<script src="assets/js/souhait.js"></script>
+<script src="/Public/vendors/jquery/jquery-3.6.0.min.js"></script>
+<script src="/Public/js/souhait.js"></script>
 </body>
 
 <!-- Footer -->
