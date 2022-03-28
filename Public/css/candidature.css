@@ -1,1 +1,83 @@
 
+#title{
+
+    padding : 1em;
+}
+
+
+#WL
+{
+    float: right;
+    padding-right: 1em;
+    padding-top: 1em;
+}
+
+
+#logo{
+    float: left;
+    padding-left: 1em;
+    padding-top: 1em;
+
+}
+
+#navigbar{
+    clear:left;
+}
+
+#mynavbar{
+    justify-content:center;
+}
+
+
+#image1 {
+    padding-top: 5em;
+    object-fit: contain;
+    height:100%;
+    width: 100%;
+}
+
+#coltxt{
+
+    padding-top: 5em;
+
+}
+
+.bubble{
+    margin-left: 20px;
+    margin-top: 3%;
+}
+
+table{
+    border-collapse: collapse;
+    margin-left: 30px;
+    margin-bottom: 10px;
+    width: 75%;
+
+
+}
+
+.noir{
+    border: 1px solid black;
+    padding: 10px;
+
+
+
+}
+
+td{
+    vertical-align : top;
+    padding-top:10px;
+    padding-bottom:10px;
+}
+
+.recherche {
+
+    margin-top: 3%;
+    margin-right: 43px;
+    border: solid;
+    width: 20%;
+    float: left;
+}
+
+
+
