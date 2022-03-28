@@ -83,19 +83,19 @@
 
                 <td>
                     <label for="mail"></label>
-                    <input id= "mail" type = "email" placeholder="A :">
+                    <input id= "mail"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" type = "email" placeholder="A :" onkeypress="verifierCaracteres(event); return false;">
                 </td>
             </tr>
             <tr>
                 <td>
                     <label for="objet"></label>
-                    <input id="objet" type = "text" placeholder="objet">
+                    <input id="objet" type = "text" placeholder="objet" onkeypress="verifierCaracteres(event); return false;">
                 </td>
             </tr>
             <tr>
                 <td>
                     <label for="demande"></label>
-                    <textarea id="demande" type = "text" placeholder="Saisir votre demande"></textarea>
+                    <textarea id="demande" type = "text" placeholder="Saisir votre demande" onkeypress="verifierCaracteres(event); return false;"></textarea>
                 </td>
             </tr>
             <tr>
