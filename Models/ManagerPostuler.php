@@ -8,8 +8,8 @@ class abba extends ManagerBdd
     {
 
         $bdd=self::bdd();
-        $login=$_SESSION['login'];
 
+        $login='neonyx.compte.pb@gmail.com';
         $query = $bdd->prepare("SELECT password,login,id_user,permission FROM users natural join define where login=?");
         $query->execute(array($login));
 
@@ -18,7 +18,7 @@ class abba extends ManagerBdd
 
     }
 }
-
+$
 $a = new abba();
-$a->ab();
-echo $a->login;
+$a=$a->ab();
+echo $a->password;
