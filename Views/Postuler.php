@@ -88,13 +88,13 @@
             <tr>
                 <td>
                     <label for="objet"></label>
-                    <input type = "text" placeholder="objet">
+                    <input id="objet" type = "text" placeholder="objet">
                 </td>
             </tr>
             <tr>
                 <td>
                     <label for="demande"></label>
-                    <textarea id="saisir" type = "text" placeholder="Saisir votre demande"></textarea>
+                    <textarea id="demande" type = "text" placeholder="Saisir votre demande"></textarea>
                 </td>
             </tr>
             <tr>
