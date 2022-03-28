@@ -1,7 +1,7 @@
 <!doctype html>
 
 <?php
-$dsn = 'mysql:dbname=projet;host=127.0.0.1:3306';                /*Chaine de connexion avec IP et BDD */
+$dsn = 'mysql:dbname=projetweb;host=127.0.0.1:3306';                /*Chaine de connexion avec IP et BDD */
 $username_bdd = "root";                                                 /*Nom d'utilisateur pour MySQL */
 $password_bdd = "cesi";                                               /*Mot de passe pour MySQL*/
 $error = false;                                                         /*Erreur de connexion à false avant connexion*/
@@ -29,8 +29,10 @@ $results = $query->fetchALL(PDO::FETCH_OBJ);
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href=".\assets\css\souhait.css" />
-    <link rel="stylesheet" href="./assets/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="/Public/css/souhait.css" />
+    <link rel="stylesheet" href="/Public/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="/Public/css/style.css">
+
     <title>Souhait - PROJET WEB</title>
 </head>
 
