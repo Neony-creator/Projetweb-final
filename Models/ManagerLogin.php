@@ -9,8 +9,9 @@ class ManagerLogin extends ManagerBdd
     {
 
         $bdd=self::bdd();
+        $login=$_SESSION['login'];
 
-        $query = $bdd->prepare("SELECT password,login,id_user,permission FROM users natural join define");
+        $query = $bdd->prepare("SELECT password,login,id_user,permission FROM users natural join define where login=$login");
         $query->execute();
 
         $results = $query->fetchAll(PDO::FETCH_OBJ);
@@ -19,15 +20,6 @@ class ManagerLogin extends ManagerBdd
     }
 }
 
-$a = new ManagerLogin();
-$a=$a->getLog();
-
-foreach ($a as $aa)
-{   echo $aa->password;
-    echo $aa->login;
-    echo $aa->id_user;
-    echo $aa->permission;
-}
 
 
 

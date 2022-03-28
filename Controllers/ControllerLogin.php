@@ -1,24 +1,35 @@
 <?php
 session_start();
+require_once ('Models/ManagerLogin.php');
 
 
-if (!empty($_POST['password']) && !empty($_POST['email'])){ // si formulaire est soumis
-    $passhash=password_hash($_POST['password'], PASSWORD_BCRYPT);
+class ControllerLogin
+{
+    public function verifpwd ()
+    {
+        if (!empty($_POST['password']) && !empty($_POST['email'])){ // si formulaire est soumis
+            $passhash=password_hash($_POST['password'], PASSWORD_BCRYPT);
+            $_SESSION['login']=$_POST['email'];
+            $databdd = new ManagerLogin();
+            $databdd=$databdd->getLog();
+            $pdw=$databdd->password;
 
-    $a='$2y$10$QNzBIrTQ5dvHyo6ryR.xReZNZr7Og7JN34YjEa8AK2xbZ.bWQjQDe';
-    $_SESSION['login']=$_POST['email'];
-    echo $_SESSION['hash'];
+            if (password_verify($pdw, $passhash)) {
+                echo "Password matches.";
+            }
+            else {
+                echo "Password incorrect.";
+            }
+        }
+        else { // si formulaire pas soumis
 
-    if (password_verify($_POST['password'], $a)) {
-        echo "Password matches.";
-    }
-    else {
-        echo "Password incorrect.";
+            header('location: /Projetweb-final/Views/Login.php');
+
+        }
     }
 }
-else { // si formulaire pas soumis
+$a= new ControllerLogin();
+$a->verifpwd();
 
-    header('location: /Projetweb-final/Views/Login.php');
-
-} ?>
+ ?>
 
