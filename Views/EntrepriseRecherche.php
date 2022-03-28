@@ -1,4 +1,29 @@
 <!doctype html>
+    <?php
+        $dsn = 'mysql:dbname=projetweb;localhost';                /*Chaine de connexion avec IP et BDD */
+        $username_bdd = "root";                                                 /*Nom d'utilisateur pour MySQL */
+        $password_bdd = "cesi";                                               /*Mot de passe pour MySQL*/
+        $error = false;                                                         /*Erreur de connexion à false avant connexion*/
+
+        try {                                                                   /*Tente une connexion...*/
+            $bdd = new PDO($dsn, $username_bdd, $password_bdd);                 /*Creation objet PDO et init de la connexion*/
+            $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);      /*Définition de toutes erreurs en tant qu'Exception*/
+        } catch(PDOException $e) {                                              /*Si erreur attrapée*/
+            $error = $e->getMessage();                                          /*Stock le msg de l'erreur dans error*/
+            echo $error;
+        }
+
+    if (!$error) {
+        $query = $bdd->prepare('SELECT  company_name, mail, sector_of_activity, number_of_trainees, Town, evaluation_of_trainees, trust_of_pilot FROM company NATURAL JOIN location NATURAL JOIN evaluate;');
+        $query->execute();
+        $results = $query->fetchALL(PDO::FETCH_OBJ);
+    }
+
+    if(isset($_GET['s']) AND !empty($_GET['s'])){
+        $recherche = htmlspecialchars($_GET['s']);
+         $results=  $bdd->prepare('SELECT company_name FROM company where company_name LIKE "%'.$recherche.'%" ORDER BY id DESC');
+    }
+    ?>
 <html lang="en">
 <head>
     <!-- Required meta tags -->
@@ -15,7 +40,7 @@
 <section>
     <!-- Logo -->
     <div id="logo">
-        <p> <img src="assets/file/logo.png" alt="logo cesi" title="Qu'est ce qu'il est beau quand même !"/> </p>
+        <p> <img src="/Public/file/logo.png" alt="logo cesi" title="Qu'est ce qu'il est beau quand même !"/> </p>
     </div>
 
     <!-- Bouton Wish-list -->
@@ -80,121 +105,98 @@
 
 <!-- Body -->
 
-
 <body>
-<div class="tout">
+
+
     <div class="recherche">
         <div class="container">
             <h2>Rechercher</h2>
-            <form>
-                <fieldset>
+            <form action=EntrepriseRecherche.php method="get">
+                <div class="form-group">
+                    <label for="nom">Nom de l'entreprise</label>
+                    <input type="text" class="form-control" id="nom" name="Nom" placeholder="Pierre GIRAUD">
+                </div>
+
+                <div class="form-group">
+                    <label for="Ville">Ville</label>
+                    <input type="text" class="form-control" name="Ville" id="Ville" placeholder="Strasbourg">
+                </div>
+
+                <div class="form-group">
+                    <label for="selection" >Secteur d'activité</label>
+                    <select id="selection" name="Secteur"  class="form-control">
+                        <option value="">Liste de choix...</option>
+                        <optgroup label="Groupe d'options">
+                            <option value="Informatique">Informatique</option>
+                            <option value="BTP">BTP</option>
+                            <option value="Générale">Générale</option>
+                        </optgroup>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="nbstagiaire">Nombre de stagiaire</label>
+                    <input type="number" name="NBstagiaire" class="form-control" id="nbstagiaire" placeholder="5">
+                </div>
+                    <label for="Note1">Evaluation des stagiaire</stagiaire></label>
+                    1 <input type = "radio" id="Note1" name = "sat1" value = "1">
+                    2 <input type = "radio" id="Note1" name = "sat1" value = "2">
+                    3 <input type = "radio" id="Note1" name = "sat1" value = "3">
+                    4 <input type = "radio" id="Note1" name = "sat1" value = "4">
+                    5 <input type = "radio" id="Note1" name = "sat1" value = "5">
+
+                    <label for="Note2">Confiance du pilote</label>
+                    1 <input type = "radio" id="Note2" name = "sat2" value = "1">
+                    2 <input type = "radio" id="Note2" name = "sat2" value = "2">
+                    3 <input type = "radio" id="Note2" name = "sat2" value = "3">
+                    4 <input type = "radio" id="Note2" name = "sat2" value = "4">
+                    5 <input type = "radio" id="Note2" name = "sat2" value = "5">
 
 
-                    <div class="form-group">
-                        <label for="nom">Nom de l'entreprise</label>
-                        <input type="text" class="form-control" id="nom" placeholder="Pierre GIRAUD">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="Ville">Ville</label>
-                        <input type="text" class="form-control" id="Ville" placeholder="Strasbourg">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="selection">Secteur d'activité</label>
-                        <select id="selection" class="form-control">
-                            <option value="">Liste de choix...</option>
-                            <optgroup label="Groupe d'options">
-                                <option value="">Informatique</option>
-                                <option value="">BTP</option>
-                                <option value="">Générale</option>
-                            </optgroup>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="nbstagiaire">Nombre de stagiaire</label>
-                        <input type="number" class="form-control" id="nbstagiaire" placeholder="5">
-                    </div>
-
-                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-                    <div class="note">
-                        <div class="eval">
-                            <h6>Evaluation des stagiaires</h6>
-                        </div>
-                        <div class="etoile">
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star"></span>
-                            <span class="fa fa-star"></span>
-                        </div>
-                    </div>
-
-
-                    <div class="eval2">
-                        <h6>Appréciation des pilotes</h6>
-                    </div>
-
-                    <div class="etoile2">
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span>
-                        <span class="fa fa-star"></span>
-                    </div>
-                    <br>
-                    <input type="submit" id="submit" value="Soumettre">
-
-
-                </fieldset>
+                <br>
+                <input type="submit" id="submit" value="Soumettre">
             </form>
+
         </div>
     </div>
+
+
     <div class="entreprise">
 
-        <div class="container-fluid">
-            <div class="row border border-dark border-2">
-                <div class="col-4 border-end border-dark border-2">
-                    <p class=" title h1 text-decoration-underline" > Entreprise : </p>
-                    <article class="textnormale h5">
-                        <h5>Secteur d'activité :</h5>
-                        <h5>Ville :</h5>
-                        <div id="title1"><h5>Mettre une Note :</h5></div>
-                        <div class="etoile">
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star"></span>
-                            <span class="fa fa-star"></span>
-                        </div>
-                    </article>
-                </div>
-                <div class="col-lg-6 bor ">
-                    <article class="textnormale h5 lh-base">
-                        <h5>Nombre de stagaire déja embauché :</h5>
-                        <div id="title2"> <h5>Evaluation des stagiaires :</h5> </div>
-                        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-                        <div class="note">
-                            <div class="etoile">
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star"></span>
-                                <span class="fa fa-star"></span>
-                            </div>
-                        </div>
-                        <div id="blocktxt1">
-                            <h5>Confiance du pilote de promotion :</h5>
-                            <h5>Adresse mail :</h5>
-                        </div>
-                    </article>
-                </div>
-            </div>
+            <div class="container-fluid">
+                <?php foreach ($results as $e) : ?>
+                <div class="row border border-dark border-2">
+                    <div class="col-5 border-end border-dark border-2">
+                        <p class=" title h2 text-decoration-underline" > Entreprise : <?= $e->company_name ?> </p>
+                            <article class="textnormale h5">
+                            <h5>Secteur d'activité : <?= $e->sector_of_activity ?></h5>
+                            <h5>Ville : <?= $e->Town ?></h5>
 
+                            <form>
+                                <label for="Note">Mettre une note</label>
+                                1 <input type = "radio" id="Note" name = "sat" value = "1">
+                                2 <input type = "radio" id="Note" name = "sat" value = "2">
+                                3 <input type = "radio" id="Note" name = "sat" value = "3">
+                                4 <input type = "radio" id="Note" name = "sat" value = "4">
+                                5 <input type = "radio" id="Note" name = "sat" value = "5">
+                                <input type="submit" id="submit" value="Soumettre">
+                            </form>
+                        </article>
+                    </div>
+                    <div class="col-lg-6 bor ">
+                        <article class="textnormale h5 lh-base">
+                            <h5>Nombre de stagaire déja embauché : <?= $e->number_of_trainees ?></h5>
+                            <h5>Note des stagiaire : <?= $e->evaluation_of_trainees ?></h5>
+                            <div id="blocktxt1">
+                                <h5>Confiance du pilote de promotion : <?= $e->trust_of_pilot ?></h5>
+                                <h5>Adresse mail : <?= $e->mail?></h5>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+                <br>
+            <?php endforeach; ?>
         </div>
     </div>
-</div>
-
 
 
 
