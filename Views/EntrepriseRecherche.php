@@ -114,12 +114,12 @@
             <form action=EntrepriseRecherche.php method="get">
                 <div class="form-group">
                     <label for="nom">Nom de l'entreprise</label>
-                    <input type="text" class="form-control" id="nom" name="Nom" placeholder="Pierre GIRAUD">
+                    Nom : <input type="text" class="form-control" id="nom" name="Nom" placeholder="Pierre GIRAUD">
                 </div>
 
                 <div class="form-group">
                     <label for="Ville">Ville</label>
-                    <input type="text" class="form-control" name="Ville" id="Ville" placeholder="Strasbourg">
+                    Ville :<input type="text" class="form-control" name="Ville" id="Ville" placeholder="Strasbourg">
                 </div>
 
                 <div class="form-group">
@@ -127,15 +127,15 @@
                     <select id="selection" name="Secteur"  class="form-control">
                         <option value="">Liste de choix...</option>
                         <optgroup label="Groupe d'options">
-                            <option value="Informatique">Informatique</option>
-                            <option value="BTP">BTP</option>
-                            <option value="Générale">Générale</option>
+                            Secteur : <option value="Informatique">Informatique</option>
+                            Secteur : <option value="BTP">BTP</option>
+                            Secteur : <option value="Générale">Générale</option>
                         </optgroup>
                     </select>
                 </div>
                 <div class="form-group">
                     <label for="nbstagiaire">Nombre de stagiaire</label>
-                    <input type="number" name="NBstagiaire" class="form-control" id="nbstagiaire" placeholder="5">
+                    NbStagiaire :<input type="number" name="NBstagiaire" class="form-control" id="nbstagiaire" placeholder="5">
                 </div>
                     <label for="Note1">Evaluation des stagiaire</stagiaire></label>
                     1 <input type = "radio" id="Note1" name = "sat1" value = "1">
