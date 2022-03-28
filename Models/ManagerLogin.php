@@ -1,5 +1,4 @@
 <?php
-session_start();
 require_once('ManagerBdd.php');
 
 
@@ -11,10 +10,10 @@ class ManagerLogin extends ManagerBdd
         $bdd=self::bdd();
         $login=$_SESSION['login'];
 
-        $query = $bdd->prepare("SELECT password,login,id_user,permission FROM users natural join define where login=$login");
-        $query->execute();
+        $query = $bdd->prepare("SELECT password,login,id_user,permission FROM users natural join define where login=?");
+        $query->execute(array($login));
 
-        $results = $query->fetchAll(PDO::FETCH_OBJ);
+        $results = $query->fetch(PDO::FETCH_OBJ);
         return $results;
 
     }
