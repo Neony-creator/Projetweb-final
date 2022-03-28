@@ -207,7 +207,7 @@ if (!$error) {
                                 </div>
                             </div>
                             <div id="blocktxt1">
-                                <h5>Confiance du pilote de promotion : <?= $e->trust_of_pilot></h5>
+                                <h5>Confiance du pilote de promotion : <?= $e->trust_of_pilot ?></h5>
                                 <h5>Adresse mail :</h5>
                             </div>
                         </article>
