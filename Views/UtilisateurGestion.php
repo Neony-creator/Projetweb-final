@@ -80,25 +80,19 @@
             <fieldset>
 
 
+                <label>Nom de l'étudiant</label>
+                <input id="NomEtudiant" type="text" class="form-control" placeholder="RIGOT" form-group">
+                <label>Prénom de l'étudiant</label>
+                <input type="text" class="form-control" id="PrenomEtudiant" placeholder="Jane" onkeypress="verifierCaracteres(event); return false;>
                 <div class="form-group">
-                    <label for="NomEtudiant">Nom de l'étudiant</label>
-                    <input type="text" class="form-control" id="NomEtudiant" placeholder="RIGOT" onkeypress="verifierCaracteres(event); return false;>
-                </div>
 
-                <div class="form-group">
-                    <label for="PrenomEtudiant">Prénom de l'étudiant</label>
-                    <input type="text" class="form-control" id="PrenomEtudiant" placeholder="Jane" onkeypress="verifierCaracteres(event); return false;>
-                </div>
-
-                <div class="form-group">
-                    <label for="Role">Role</label>
-                    <select id="Role" class="form-control">
-                        <option value="">Liste de choix...</option>
-                        <option value="">Pilote</option>
-                        <option value="">Delegue</option>
-                        <option value="">Etudiant</option>
-                    </select>
-                </div>
+                <label for="Role">Role</label>
+                <select id="Role" class="form-control">
+                    <option value="">Liste de choix...</option>
+                    <option value="">Pilote</option>
+                    <option value="">Delegue</option>
+                    <option value="">Etudiant</option>
+                </select>
 
                 <div class="form-group">
                     <label for="Etablissement">Etablisement</label>
@@ -168,7 +162,7 @@
                 <input class="d" type="text" id="identifiant" name="identifiant" required minlength="4" maxlength="8" size="10"/><br/>
                 <label class="gauche"> Etablisement </label>
                 <label class="droiteee"> Mot de passe </label><br/>
-                <select class="g" id="Etablissement" class="form-control">
+                <select class="g" id="Etablissement">
                     <option value="">Liste de choix...</option>
                     <option value="">Strasbourg</option>
                     <option value="">Nancy</option>
