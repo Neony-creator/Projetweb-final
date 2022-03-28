@@ -23,12 +23,18 @@ class ManagerBdd
         }
         else
         { echo "<script>alert('error')</script>";
-            die('erreur');
-            header('location: /Projetweb-final/Views/Login.php');
+            echo 'service momentanément indisponible';
+            ?>
+            <br>
+<?php
+
+            die($error);
+
         }
 
     }
 }
+?>
 
 /*Erreur de connexion à false avant connexion*/
 
