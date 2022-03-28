@@ -9,6 +9,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="/Public/css/postuler.css" />
     <title>Postuler - PROJET WEB</title>
+    <script src="/Public/js/postuler.js"> </script>
 </head>
 
 <section class="top">
@@ -28,7 +29,7 @@
     <!-- Titre -->
 
     <div id="title">
-        <h1>Titre</h1>
+        <h1>CESI-TON-STAGE</h1>
     </div>
 
 
@@ -82,19 +83,19 @@
 
                 <td>
                     <label for="mail"></label>
-                    <input id= mail type = "email" placeholder="A :">
+                    <input id= "mail"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" type = "email" placeholder="A :" onkeypress="verifierCaracteres(event); return false;">
                 </td>
             </tr>
             <tr>
                 <td>
                     <label for="objet"></label>
-                    <input id="objet" type = "text" placeholder="objet">
+                    <input id="objet" type = "text" placeholder="objet" onkeypress="verifierCaracteres(event); return false;">
                 </td>
             </tr>
             <tr>
                 <td>
                     <label for="demande"></label>
-                    <textarea id="demande" type = "text" placeholder="Saisir votre demande"></textarea>
+                    <textarea id="demande" type = "text" placeholder="Saisir votre demande" onkeypress="verifierCaracteres(event); return false;"></textarea>
                 </td>
             </tr>
             <tr>
