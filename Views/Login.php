@@ -93,8 +93,8 @@
                 </div>
                 <div id="mdp" class="form-group col-3 mx-auto">
                     <label for="password1">Mot de passe</label>
-                    <input type="password"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-                           title="Commentaire au choix"  name="password" class="form-control" id="password1" placeholder="Mot de passe" onkeypress="verifierCaracteres(event) ; return false; ">
+                    <input type="password"
+                           title="Commentaire au choix"  name="password" class="form-control" id="password1" placeholder="Mot de passe"  ">
                     <div id="button">
                         <button type="submit" class="btn btn-lg btn-dark">Valider</button>
                     </div>
