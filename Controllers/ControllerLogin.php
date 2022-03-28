@@ -34,7 +34,7 @@ class ControllerLogin
         }
         else { // si formulaire pas soumis
 
-            header('location: /Projetweb-final/Views/Login.php');
+            header('location: /Projetweb-final/Views/Login.php?er=1');
 
         }
     }
