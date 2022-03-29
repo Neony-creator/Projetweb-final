@@ -110,17 +110,18 @@ if (!$error) {
         <div class="container">
             <h2>Rechercher</h2>
             <form>
+                <form action=StageRecherche.php method="get">
                 <fieldset>
 
 
                     <div class="form-group">
-                        <label for="Nom du stage">Nom du stage</label>
-                        <input type="text" class="form-control" id="Nom du stage" placeholder="Stage web design">
+                        <label for="Nom">Nom du stage</label>
+                        <input type="text" class="form-control" id="Nom" name='Nom' placeholder="Stage web design">
                     </div>
 
                     <div class="form-group">
                         <label for="Nom de l'entreprise">Nom de l'entreprise</label>
-                        <input type="text" class="form-control" id="Nom de l'entreprise" placeholder="CESI">
+                        <input type="text" class="form-control" id="Nom de l'entreprise" name='NomE' placeholder="CESI">
                     </div>
 
                     <div class="form-group">
@@ -130,11 +131,11 @@ if (!$error) {
 
                     <div class="form-group">
                         <label for="Ville">Ville</label>
-                        <input type="number" class="form-control" id="Ville" placeholder="Strasbourg">
+                        <input type="number" class="form-control" id="Ville" name='Ville' placeholder="Strasbourg">
                     </div>
                     <div class="form-group">
                         <label for="Durée">Durée du stage</label>
-                        <select id="Durée" class="form-control">
+                        <select id="Durée" name='Durée' class="form-control">
                             <option value="">Liste de choix...</option>
                             <option value="">1 mois</option>
                             <option value="">2 mois</option>
@@ -149,15 +150,15 @@ if (!$error) {
 
                     <div class="form-group">
                         <label for="Date de début">Date de début</label>
-                        <input type="text" class="form-control" id="Date de début" placeholder="04/04/2022">
+                        <input type="text" class="form-control" id="Date de début" NAME="Ddébut" placeholder="04/04/2022">
                     </div>
                     <div class="form-group">
                         <label for="Rémunération">Rémunération(€/mois)</label>
-                        <input type="number" class="form-control" id="Rémunération" placeholder="1200">
+                        <input type="number" class="form-control" id="Rémunération" name='Rémunération' placeholder="1200">
                     </div>
                     <div class="form-group">
                         <label for="Place">Nombre de place offerte</label>
-                        <input type="number" class="form-control" id="Place" placeholder="2">
+                        <input type="number" class="form-control" id="Place" name="NBplace" placeholder="2">
                     </div>
 
                     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -169,49 +170,115 @@ if (!$error) {
                         5  <input type = "radio" id="Note1" name = "sat1" value = "5">
 
 
-                    <input type="submit" id="submit" value="Soumettre">
+                    <input type="submit" id="submit" name="submit" value="Soumettre">
 
                 </fieldset>
             </form>
         </div>
     </div>
-    <div class="stage">
 
-        <div class="container-fluid">
-            <?php foreach ($results as $a) : ?>
-            <div class="row border border-dark border-2">
-                <div class="col-5 border-end border-dark border-2">
-                    <p class=" title h1 text-decoration-underline" > Stage: <?= $a->name_offer  ?></p>
-                    <article class="textnormale h5">
-                        <h5>Entreprise : <?= $a->company_name ?></h5>
-                        <h5>Compétence: <?= $a->skills ?></h5>
-                        <h5>Note de l'entreprise : <?= $a->evaluation_of_trainees ?>/5</h5>
-                        <div id="blocktxt1">
-                            <h5>Secteur d'activité: <?= $a->sector_of_activity ?></h5>
+    <?php
+    if (isset($_GET['submit'])){
+    $nom = $_GET['Nom'];
+    $nomE = $_GET['NomE'];
+    $ville = $_GET['Ville'];
+    $secteur = $_GET['Secteur'];
+    $duree = $_GET['Durée'];
+
+    $dateDebut = $_GET['Ddébut'];
+    $Remuneration = $_GET['Rémunération'];
+    $NBplace = $_GET['NBplace'];
+    if (isset($_GET['sat1'])){
+        $EvalStagiaire = $_GET['sat1'];
+    }
+    else $EvalStagiaire ='';
+
+
+    if (!$error) {
+        $query = $bdd->prepare("SELECT  name_offer,company_name,skills, mail, description, sector_of_activity, number_of_trainees, Town, evaluation_of_trainees, internship_duration, start_date, remuneration_basis, number_of_places_offered, evaluation_of_trainees FROM offer NATURAL JOIN location NATURAL JOIN evaluate NATURAL JOIN company WHERE name_offer=COALESCE(NULLIF('$nom',''),name_offer) AND company_name=COALESCE(NULLIF('$nomE',''),company_name) AND Town=COALESCE(NULLIF('$ville',''),Town) AND sector_of_activity=COALESCE(NULLIF('$secteur',''),sector_of_activity) AND internship_duration=COALESCE(NULLIF('$duree',''),internship_duration) AND start_date=COALESCE(NULLIF('$dateDebut',''),start_date) AND remuneration_basis=COALESCE(NULLIF('$Remuneration',''),remuneration_basis) AND number_of_places_offered=COALESCE(NULLIF('$NBplace',''),number_of_places_offered) AND evaluation_of_trainees=COALESCE(NULLIF('$EvalStagiaire',''),evaluation_of_trainees)");
+        $query->execute();
+        $resultsub = $query->fetchALL(PDO::FETCH_OBJ);
+    }
+    ?>
+        <div class="stage">
+
+            <div class="container-fluid">
+                <?php foreach ($resultsub as $e) : ?>
+                    <div class="row border border-dark border-2">
+                        <div class="col-5 border-end border-dark border-2">
+                            <p class=" title h1 text-decoration-underline" > Stage: <?= $e->name_offer  ?></p>
+                            <article class="textnormale h5">
+                                <h5>Entreprise : <?= $e->company_name ?></h5>
+                                <h5>Compétence: <?= $e->skills ?></h5>
+                                <h5>Note de l'entreprise : <?= $e->evaluation_of_trainees ?>/5</h5>
+                                <div id="blocktxt1">
+                                    <h5>Secteur d'activité: <?= $e->sector_of_activity ?></h5>
+                                </div>
+                                <h5>Ville : <?= $e->Town ?></h5>
+                                <h5>Durée du stage : <?= $e->internship_duration  ?></h5>
+                                <h5>Date de début : <?= $e->start_date  ?></h5>
+                                <h5>Base de rémunération <?= $e->remuneration_basis ?></h5>
+                                <h5>Nombre de places offertes : <?= $e->number_of_places_offered  ?></h5>
+                            </article>
                         </div>
-                        <h5>Ville : <?= $a->Town ?></h5>
-                        <h5>Durée du stage : <?= $a->internship_duration  ?></h5>
-                        <h5>Date de début : <?= $a->start_date  ?></h5>
-                        <h5>Base de rémunération <?= $a->remuneration_basis ?></h5>
-                        <h5>Nombre de places offertes : <?= $a->number_of_places_offered  ?></h5>
-                    </article>
-                </div>
-                <div class="col-lg-6 bor ">
-                    <article class="textnormale h5 lh-base">
-                        <br>
-                        <p class=" title h2 text-decoration-underline" > En quoi consiste le stage:</p>
-                        <div id="title2"> <h5><?= $a-> description ?>.</h5> </div>
+                        <div class="col-lg-6 bor ">
+                            <article class="textnormale h5 lh-base">
+                                <br>
+                                <p class=" title h2 text-decoration-underline" > En quoi consiste le stage:</p>
+                                <div id="title2"> <h5><?= $e-> description ?>.</h5> </div>
 
-                    </article>
-                </div>
+                            </article>
+                        </div>
+                    </div>
+                    <br>
+                <?php endforeach; ?>
             </div>
-            <br>
-            <?php endforeach; ?>
-             </div>
 
         </div>
 
+        <?php
+    }
+    else{
+    ?>
+        <div class="stage">
 
+            <div class="container-fluid">
+                <?php foreach ($results as $a) : ?>
+                <div class="row border border-dark border-2">
+                    <div class="col-5 border-end border-dark border-2">
+                        <p class=" title h1 text-decoration-underline" > Stage: <?= $a->name_offer  ?></p>
+                        <article class="textnormale h5">
+                            <h5>Entreprise : <?= $a->company_name ?></h5>
+                            <h5>Compétence: <?= $a->skills ?></h5>
+                            <h5>Note de l'entreprise : <?= $a->evaluation_of_trainees ?>/5</h5>
+                            <div id="blocktxt1">
+                                <h5>Secteur d'activité: <?= $a->sector_of_activity ?></h5>
+                            </div>
+                            <h5>Ville : <?= $a->Town ?></h5>
+                            <h5>Durée du stage : <?= $a->internship_duration  ?></h5>
+                            <h5>Date de début : <?= $a->start_date  ?></h5>
+                            <h5>Base de rémunération <?= $a->remuneration_basis ?></h5>
+                            <h5>Nombre de places offertes : <?= $a->number_of_places_offered  ?></h5>
+                        </article>
+                    </div>
+                    <div class="col-lg-6 bor ">
+                        <article class="textnormale h5 lh-base">
+                            <br>
+                            <p class=" title h2 text-decoration-underline" > En quoi consiste le stage:</p>
+                            <div id="title2"> <h5><?= $a-> description ?>.</h5> </div>
+
+                        </article>
+                    </div>
+                </div>
+                <br>
+                <?php endforeach; ?>
+                 </div>
+
+            </div>
+
+        <?php
+    }
+    ?>
 
 <!-- Bootstrap Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
