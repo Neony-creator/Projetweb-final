@@ -1,4 +1,26 @@
 <!doctype html>
+<!doctype html>
+<?php
+$dsn = 'mysql:dbname=projetweb;localhost';                /*Chaine de connexion avec IP et BDD */
+$username_bdd = "root";                                                 /*Nom d'utilisateur pour MySQL */
+$password_bdd = "cesi";                                               /*Mot de passe pour MySQL*/
+$error = false;                                                         /*Erreur de connexion à false avant connexion*/
+
+try {                                                                   /*Tente une connexion...*/
+    $bdd = new PDO($dsn, $username_bdd, $password_bdd);                 /*Creation objet PDO et init de la connexion*/
+    $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);      /*Définition de toutes erreurs en tant qu'Exception*/
+} catch(PDOException $e) {                                              /*Si erreur attrapée*/
+    $error = $e->getMessage();                                          /*Stock le msg de l'erreur dans error*/
+    echo $error;
+}
+
+if (!$error) {
+    $query = $bdd->prepare('SELECT  name_offer,company_name,skills, mail, description, sector_of_activity, number_of_trainees, Town, evaluation_of_trainees, internship_duration, start_date, remuneration_basis, number_of_places_offered, evaluation_of_trainees FROM offer NATURAL JOIN location NATURAL JOIN evaluate NATURAL JOIN company;');
+    $query->execute();
+    $results = $query->fetchALL(PDO::FETCH_OBJ);
+}
+
+?>
 <html lang="en">
 <head>
     <!-- Required meta tags -->
@@ -83,7 +105,7 @@
 
 
 <body>
-<div class="tout">
+
     <div class="recherche">
         <div class="container">
             <h2>Rechercher</h2>
@@ -102,16 +124,10 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="selection">Secteur d'activité</label>
-                        <select id="selection" class="form-control">
-                            <option value="">Liste de choix...</option>
-
-                            <option value="">Informatique</option>
-                            <option value="">BTP</option>
-                            <option value="">Générale</option>
-
-                        </select>
+                        <label for="Secteur d'activité">Secteur d'activité</label>
+                        <input type="text" class="form-control" name="Secteur" id="Secteur d'activité" ">
                     </div>
+
                     <div class="form-group">
                         <label for="Ville">Ville</label>
                         <input type="number" class="form-control" id="Ville" placeholder="Strasbourg">
@@ -145,18 +161,13 @@
                     </div>
 
                     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-                    <div class="note">
-                        <div class="eval">
-                            <h6>Evaluation des stagiaires</h6>
-                        </div>
-                        <div class="etoile">
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star"></span>
-                            <span class="fa fa-star"></span>
-                        </div>
-                    </div>
+                        <label for="Note1">Evaluation des stagiaire</stagiaire></label>
+                        1  <input type = "radio" id="Note1" name = "sat1" value = "1">
+                        2  <input type = "radio" id="Note1" name = "sat1" value = "2">
+                        3  <input type = "radio" id="Note1" name = "sat1" value = "3">
+                        4  <input type = "radio" id="Note1" name = "sat1" value = "4">
+                        5  <input type = "radio" id="Note1" name = "sat1" value = "5">
+
 
                     <input type="submit" id="submit" value="Soumettre">
 
@@ -164,46 +175,41 @@
             </form>
         </div>
     </div>
-    <div class="entreprise">
+    <div class="stage">
 
         <div class="container-fluid">
+            <?php foreach ($results as $a) : ?>
             <div class="row border border-dark border-2">
-                <div class="col-4 border-end border-dark border-2">
-                    <p class=" title h1 text-decoration-underline" > Stage: </p>
+                <div class="col-5 border-end border-dark border-2">
+                    <p class=" title h1 text-decoration-underline" > Stage: <?= $a->name_offer  ?></p>
                     <article class="textnormale h5">
-                        <h5>Entreprise :</h5>
-                        <h5>Compétence:</h5>
-                        <div id="title1"><h5>Note de l'entreprise :</h5></div>
-                        <div class="etoile">
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star"></span>
-                            <span class="fa fa-star"></span>
-                        </div>
+                        <h5>Entreprise : <?= $a->company_name ?></h5>
+                        <h5>Compétence: <?= $a->skills ?></h5>
+                        <h5>Note de l'entreprise : <?= $a->evaluation_of_trainees ?>/5</h5>
                         <div id="blocktxt1">
-                            <h5>Secteur d'activité</h5>
+                            <h5>Secteur d'activité: <?= $a->sector_of_activity ?></h5>
                         </div>
-                        <h5>Ville</h5>
-                        <h5>Durée du stage</h5>
-                        <h5>Date de début</h5>
-                        <h5>Base de rémunération</h5>
-                        <h5>Nombre de places offertes</h5>
+                        <h5>Ville : <?= $a->Town ?></h5>
+                        <h5>Durée du stage : <?= $a->internship_duration  ?></h5>
+                        <h5>Date de début : <?= $a->start_date  ?></h5>
+                        <h5>Base de rémunération <?= $a->remuneration_basis ?></h5>
+                        <h5>Nombre de places offertes : <?= $a->number_of_places_offered  ?></h5>
                     </article>
                 </div>
                 <div class="col-lg-6 bor ">
                     <article class="textnormale h5 lh-base">
                         <br>
                         <p class=" title h2 text-decoration-underline" > En quoi consiste le stage:</p>
-                        <div id="title2"> <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h5> </div>
+                        <div id="title2"> <h5><?= $a-> description ?>.</h5> </div>
 
                     </article>
                 </div>
             </div>
+            <br>
+            <?php endforeach; ?>
+             </div>
 
         </div>
-    </div>
-</div>
 
 
 
@@ -215,7 +221,7 @@
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
 -->
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 
 

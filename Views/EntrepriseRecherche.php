@@ -196,7 +196,7 @@
                         <div class="col-lg-6 bor ">
                             <article class="textnormale h5 lh-base">
                                 <h5>Nombre de stagaire déja embauché : <?= $a->number_of_trainees ?></h5>
-                                <h5>Note des stagiaire : <?= $a->evaluation_of_trainees ?></h5>
+                                <h5>Note des stagiaire : <?= $a->evaluation_of_trainees ?>/5</h5>
                                 <div id="blocktxt1">
                                     <h5>Confiance du pilote de promotion : <?= $a->trust_of_pilot ?></h5>
                                     <h5>Adresse mail : <?= $a->mail?></h5>
@@ -239,7 +239,7 @@
             <div class="col-lg-6 bor ">
                 <article class="textnormale h5 lh-base">
                     <h5>Nombre de stagaire déja embauché : <?= $e->number_of_trainees ?></h5>
-                    <h5>Note des stagiaire : <?= $e->evaluation_of_trainees ?></h5>
+                    <h5>Note des stagiaire : <?= $e->evaluation_of_trainees ?>/5</h5>
                     <div id="blocktxt1">
                         <h5>Confiance du pilote de promotion : <?= $e->trust_of_pilot ?></h5>
                         <h5>Adresse mail : <?= $e->mail?></h5>
