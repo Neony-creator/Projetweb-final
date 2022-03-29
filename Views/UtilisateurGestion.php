@@ -28,9 +28,9 @@
     </div>
 
     <!-- Titre -->
-        <div id="title">
-            <h1>Titre</h1>
-        </div>
+    <div id="title">
+        <h1>Titre</h1>
+    </div>
 
 </section>
 
@@ -81,13 +81,13 @@
 
 
                 <label>Nom de l'étudiant</label>
-                <input id="NomEtudiant" type="text" class="form-control" placeholder="RIGOT" form-group">
+                <input id="NomEtudiant" name="NomEtudiant" type="text" class="form-control" placeholder="RIGOT" form-group">
                 <label>Prénom de l'étudiant</label>
-                <input type="text" class="form-control" id="PrenomEtudiant" placeholder="Jane" onkeypress="verifierCaracteres(event); return false;>
-                <div class="form-group">
+                <input id="PrenomEtudiant" name="PrenomEtudiant" type="text" class="form-control" placeholder="Jane" onkeypress="verifierCaracteres(event); return false;>
+                    <div class="form-group">
 
                 <label for="Role">Role</label>
-                <select id="Role" class="form-control">
+                <select id="Role" name="Role" class="form-control">
                     <option value="">Liste de choix...</option>
                     <option value="">Pilote</option>
                     <option value="">Delegue</option>
@@ -96,7 +96,7 @@
 
                 <div class="form-group">
                     <label for="Etablissement">Etablisement</label>
-                    <select id="Etablissement" class="form-control">
+                    <select id="Etablissement" name="Etablissement" class="form-control">
                         <option value="">Liste de choix...</option>
                         <option value="">Strasbourg</option>
                         <option value="">Nancy</option>
@@ -106,7 +106,7 @@
                 </div>
                 <div class="form-group">
                     <label for="Promotion">Promotion</label>
-                    <select id="Promotion" class="form-control">
+                    <select id="Promotion" name="Promotion" class="form-control">
                         <option value="">Liste de choix...</option>
                         <option value="">A1</option>
                         <option value="">A2</option>
@@ -119,19 +119,19 @@
 
                 <div class="form-group">
                     <label for="Identifiant">Identifiant</label>
-                    <input type="text" class="form-control" id="Identifiant" placeholder="J.Rigot" onkeypress="verifierCaracteres(event); return false;>
-                </div>
+                    <input id="Identifiant" name="Identifiant" type="text" class="form-control" placeholder="J.Rigot" onkeypress="verifierCaracteres(event); return false;>
+                    </div>
 
-                <div class="form-group">
+                    <div class="form-group">
                     <label for="Mot de passe">Mot de passe</label>
-                    <input type="text" class="form-control" id="Mot de passe" placeholder="cesi1234" onkeypress="verifierCaracteres(event); return false;>
-                </div>
+                    <input id="MotDePasse" name="MotDePasse" type="text" class="form-control" placeholder="cesi1234" onkeypress="verifierCaracteres(event); return false;>
+                    </div>
 
 
 
 
-                <br>
-                <input type="submit" id="submit" value="Soumettre">
+                    <br>
+                    <input id="submit" name="submit"  type="submit" value="Soumettre">
 
             </fieldset>
         </form>
@@ -139,78 +139,88 @@
 </div>
 
 <div class="container" id="MegaBox">
-  <div class="row">
-    <div id="titreUser" class="col-md-12 border border-dark">
-         <h3>Utilisateur </h3>
-    </div>
+    <div class="row">
+        <div id="titreUser" class="col-md-12 border border-dark">
+            <h3>Utilisateur </h3>
+        </div>
 
 
 
-    <div class="col-md-12 border border-top-0 border-dark">
-        <div id="box">
-          <div class="row">
-            <div class="col-6 col-md-4">Nom :</div>
-            <div class="col-6 col-md-4"></div>
-            <div class="col-6 col-md-4">Promotion :</div>
+        <div class="col-md-12 border border-top-0 border-dark">
+            <div id="box">
+                <div class="row">
+                    <div class="col-6 col-md-4">Nom :</div>
+                    <div class="col-6 col-md-4"></div>
+                    <div class="col-6 col-md-4">Promotion :</div>
 
-            <div class="col-6 col-md-4"><input id="NomUser" type="text" class="form-control" ></div>
-            <div class="col-6 col-md-4"></div>
-            <div class="col-6 col-md-4">
-                 <div class="btn-group" role="group">
-                    <button id="btnGroupDrop1" type="button" class="btn btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                      Liste de choix...
-                    </button>
-                        <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                             <li><a class="dropdown-item" href="#">A1</a></li>
-                             <li><a class="dropdown-item" href="#">A2</a></li>
-                             <li><a class="dropdown-item" href="#">A3</a></li>
-                             <li><a class="dropdown-item" href="#">A4</a></li>
-                             <li><a class="dropdown-item" href="#">A5</a></li>
-                         </ul>
+                    <div class="col-6 col-md-4"><input id="NomUser" name="NomUser" type="text" class="form-control" placeholder="Eberle" ></div>
+                    <div class="col-6 col-md-4"></div>
+                    <div class="col-6 col-md-4">
+                        <div class="btn-group" role="group">
+                            <button id="btnGroupDrop1" name="btnGroupDrop1" type="button" class="btn btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                <label>Liste de choix...</label>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                                <li><a class="dropdown-item" href="#">A1</a></li>
+                                <li><a class="dropdown-item" href="#">A2</a></li>
+                                <li><a class="dropdown-item" href="#">A3</a></li>
+                                <li><a class="dropdown-item" href="#">A4</a></li>
+                                <li><a class="dropdown-item" href="#">A5</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-md-4">Prénom :</div>
+                    <div class="col-6 col-md-4"></div>
+                    <div class="col-6 col-md-4">Identifiant :</div>
+
+                    <div class="col-6 col-md-4"><input id="PrenomUser" name="PrenomUser" type="text" class="form-control" placeholder="Alexandre" ></div>
+                    <div class="col-6 col-md-4"></div>
+                    <div class="col-6 col-md-4"><input id="IdUser" name="IdUser" type="text" class="form-control" placeholder="Neonyx"></div>
+
+                    <div class="col-6 col-md-4">Etablissement :</div>
+                    <div class="col-6 col-md-4"></div>
+                    <div class="col-6 col-md-4">Mot de passe :</div>
+
+                    <div class="col-6 col-md-4">
+                        <div class="btn-group" role="group">
+                            <button id="btnGroupDrop1" name="btnGroupDrop1" type="button" class="btn btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                <label>Liste de choix...</label>
+                            </button>
+                            <ul class="dropdown-menu" id="DropdownMenu" aria-labelledby="btnGroupDrop1" name="DropdownMenu">
+                                <li><a class="dropdown-item" href="#">Strasbourg</a></li>
+                                <li><a class="dropdown-item" href="#">Nancy</a></li>
+                                <li><a class="dropdown-item" href="#">Paris</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4"></div>
+                    <div class="col-6 col-md-4"><input id="MdpUser" name="MdpUser" type="text" class="form-control" placeholder="Un MDP"></div>
+
+                    <div class="col-6 col-md-4">Rôle :</div>
+                    <div class="col-6 col-md-4"></div>
+                    <div class="col-6 col-md-4">Permission :</div>
+
+                    <div class="col-6 col-md-4"><input id="roleUser" name="roleUser" type="text" class="form-control" placeholder="Eleve"></div>
+                    <div class="col-6 col-md-4"></div>
+                    <div class="col-6 col-md-4"><input id="permission" name="permission" type="text" class="form-control" placeholder="Admin"></div>
+                    <br><br><br>
+
+                    <div id="button1" class="col-6 col-md-4"><button id="BoutonValider" name="BoutonValider" type="button" class="btn btn-lg btn-secondary">Valider la modification</button></div>
+                    <div id="button2" class="col-6 col-md-4"><button id="BoutonCreer" name="BoutonCreer" type="button" class="btn btn-lg btn-secondary">Créer un nouvel étudiant</button></div>
+                    <div id="button3" class="col-6 col-md-4"><button id="BoutonSupr" name="BoutonSupr" type="button" class="btn btn-lg btn-secondary">Supprimer</button></div>
+                    <br>
                 </div>
-           </div>
+            </div>
 
-           <div class="col-6 col-md-4">Prénom :</div>
-            <div class="col-6 col-md-4"></div>
-            <div class="col-6 col-md-4">Identifiant :</div>
 
-            <div class="col-6 col-md-4"><input id="PrenomUser" type="text" class="form-control" ></div>
-            <div class="col-6 col-md-4"></div>
-            <div class="col-6 col-md-4"><input id="IdUser" type="text" class="form-control" ></div>
 
-            <div class="col-6 col-md-4">Etablissement :</div>
-            <div class="col-6 col-md-4"></div>
-            <div class="col-6 col-md-4">Mot de passe :</div>
-
-            <div class="col-6 col-md-4" id="test">
-                 <div class="btn-group" role="group">
-                    <button id="btnGroupDrop1" type="button" class="btn btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                      Liste de choix...
-                    </button>
-                        <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                             <li><a class="dropdown-item" href="#">Strasbourg</a></li>
-                             <li><a class="dropdown-item" href="#">Nancy</a></li>
-                             <li><a class="dropdown-item" href="#">Paris</a></li>
-                         </ul>
-                </div>
-           </div>
-           <div class="col-6 col-md-4"></div>
-           <div class="col-6 col-md-4"><input id="MdpUser" type="text" class="form-control" ></div>
-            <div id="button1" class="col-6 col-md-4"><button type="button" class="btn btn-lg btn-secondary">Valider la modification</button></div>
-            <div id="button2" class="col-6 col-md-4"><button type="button" class="btn btn-lg btn-secondary">Créer un nouvel étudiant</button></div>
-            <div id="button2" class="col-6 col-md-4"><button type="button" class="btn btn-lg btn-secondary">Supprimer</button></div>
-            <br>
+            <div id="box2" class="col-md-12 border-top border-dark">
+                <h3>Statistique</h3><br>
+                <p>Etat de la fiche de validation :<br><br> Etat de la fiche de stage :</p>
+            </div>
         </div>
     </div>
-
-
-
-    <div id="box2" class="col-md-12 border-top border-dark">
-      <h3>Statistique</h3><br>
-        <p>Etat de la fiche de validation :<br><br> Etat de la fiche de stage :</p>
-    </div>
-  </div>
-</div>
 </div>
 
 
