@@ -119,15 +119,8 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="selection" >Secteur d'activité</label>
-                    <select id="selection" name="Secteur"  class="form-control">
-                        <option value="">Liste de choix...</option>
-                        <optgroup label="Groupe d'options">
-                            <option value="Informatique">Informatique</option>
-                            <option value="BTP">BTP</option>
-                            <option value="Générale">Générale</option>
-                        </optgroup>
-                    </select>
+                    <label for="Secteur d'activité">Secteur d'activité</label>
+                    <input type="text" class="form-control" name="Secteur" id="Secteur d'activité" ">
                 </div>
                 <div class="form-group">
                     <label for="NbStagiaire">Nombre de stagiaire</label>
@@ -172,7 +165,7 @@
         else $ConfPilote ='';
 
         if (!$error) {
-            $query = $bdd->prepare("SELECT  company_name, mail, sector_of_activity, number_of_trainees, Town, evaluation_of_trainees, trust_of_pilot FROM company NATURAL JOIN location NATURAL JOIN evaluate WHERE company_name=COALESCE(NULLIF('$nom',''),company_name)  AND Town=COALESCE(NULLIF('$ville',''),Town) AND sector_of_activity=COALESCE(NULLIF('$secteur',''),sector_of_activity) AND number_of_trainees=COALESCE(NULLIF('$NbStagiaire',''),number_of_trainees) AND evaluation_of_trainees=COALESCE(NULLIF('$EvalStagiaire',''),evaluation_of_trainees) AND trust_of_pilot=COALESCE(NULLIF('$ConfPilote',''),trust_of_pilot);");
+            $query = $bdd->prepare("SELECT  company_name, mail, sector_of_activity, number_of_trainees, Town, evaluation_of_trainees, trust_of_pilot FROM company NATURAL JOIN location NATURAL JOIN evaluate WHERE company_name = COALESCE(NULLIF('$nom',''),company_name)  AND Town=COALESCE(NULLIF('$ville',''),Town) AND sector_of_activity=COALESCE(NULLIF('$secteur',''),sector_of_activity) AND number_of_trainees=COALESCE(NULLIF('$NbStagiaire',''),number_of_trainees) AND evaluation_of_trainees=COALESCE(NULLIF('$EvalStagiaire',''),evaluation_of_trainees) AND trust_of_pilot=COALESCE(NULLIF('$ConfPilote',''),trust_of_pilot);");
             $query->execute();
             $resultsub = $query->fetchALL(PDO::FETCH_OBJ);
             }
