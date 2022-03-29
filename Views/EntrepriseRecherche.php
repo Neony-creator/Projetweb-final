@@ -19,10 +19,6 @@
         $results = $query->fetchALL(PDO::FETCH_OBJ);
     }
 
-    if(isset($_GET['s']) AND !empty($_GET['s'])){
-        $recherche = htmlspecialchars($_GET['s']);
-         $results=  $bdd->prepare('SELECT company_name FROM company where company_name LIKE "%'.$recherche.'%" ORDER BY id DESC');
-    }
     ?>
 <html lang="en">
 <head>
@@ -114,12 +110,12 @@
             <form action=EntrepriseRecherche.php method="get">
                 <div class="form-group">
                     <label for="nom">Nom de l'entreprise</label>
-                    Nom : <input type="text" class="form-control" id="nom" name="Nom" placeholder="Pierre GIRAUD">
+                    <input type="text" class="form-control" id="nom" name="Nom" placeholder="Pierre GIRAUD">
                 </div>
 
                 <div class="form-group">
                     <label for="Ville">Ville</label>
-                    Ville :<input type="text" class="form-control" name="Ville" id="Ville" placeholder="Strasbourg">
+                    <input type="text" class="form-control" name="Ville" id="Ville" placeholder="Strasbourg">
                 </div>
 
                 <div class="form-group">
@@ -127,15 +123,15 @@
                     <select id="selection" name="Secteur"  class="form-control">
                         <option value="">Liste de choix...</option>
                         <optgroup label="Groupe d'options">
-                            Secteur : <option value="Informatique">Informatique</option>
-                            Secteur : <option value="BTP">BTP</option>
-                            Secteur : <option value="Générale">Générale</option>
+                            <option value="Informatique">Informatique</option>
+                            <option value="BTP">BTP</option>
+                            <option value="Générale">Générale</option>
                         </optgroup>
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="nbstagiaire">Nombre de stagiaire</label>
-                    NbStagiaire :<input type="number" name="NBstagiaire" class="form-control" id="nbstagiaire" placeholder="5">
+                    <label for="NbStagiaire">Nombre de stagiaire</label>
+                    <input type="number" name="Nbstagiaire" class="form-control" id="NbStagiaire" placeholder="5">
                 </div>
                     <label for="Note1">Evaluation des stagiaire</stagiaire></label>
                     1 <input type = "radio" id="Note1" name = "sat1" value = "1">
@@ -153,11 +149,38 @@
 
 
                 <br>
-                <input type="submit" id="submit" value="Soumettre">
+                <input type="submit" id="submit" name="submit" value="Soumettre">
             </form>
-
         </div>
     </div>
+
+    <?php
+    if (isset($_GET['submit'])){
+        $nom = $_GET['Nom'];
+        $ville = $_GET['Ville'];
+        $secteur = $_GET['Secteur'];
+        $NbStagiaire = $_GET['Nbstagiaire'];
+
+        if (isset($_GET['sat1'])){
+            $EvalStagiaire = $_GET['sat1'];
+        }
+        else $EvalStagiaire ='';
+
+        if (isset($_GET['sat2'])){
+            $ConfPilote = $_GET['sat2'];
+        }
+        else $ConfPilote ='';
+
+        if (!$error) {
+            $query = $bdd->prepare('SELECT  company_name, mail, sector_of_activity, number_of_trainees, Town, evaluation_of_trainees, trust_of_pilot FROM company NATURAL JOIN location NATURAL JOIN evaluate WHERE company_name='%$nom%' ;');
+            $query->execute();
+            $results = $query->fetchALL(PDO::FETCH_OBJ);
+            }
+
+    }
+
+    ?>
+
 
 
     <div class="entreprise">
