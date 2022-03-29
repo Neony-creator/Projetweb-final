@@ -110,12 +110,12 @@
             <form action=EntrepriseRecherche.php method="get">
                 <div class="form-group">
                     <label for="nom">Nom de l'entreprise</label>
-                    <input type="text" class="form-control" id="nom" name="Nom" placeholder="Pierre GIRAUD">
+                    <input type="text" class="form-control" id="nom" name="Nom" >
                 </div>
 
                 <div class="form-group">
                     <label for="Ville">Ville</label>
-                    <input type="text" class="form-control" name="Ville" id="Ville" placeholder="Strasbourg">
+                    <input type="text" class="form-control" name="Ville" id="Ville" ">
                 </div>
 
                 <div class="form-group">
@@ -131,7 +131,7 @@
                 </div>
                 <div class="form-group">
                     <label for="NbStagiaire">Nombre de stagiaire</label>
-                    <input type="number" name="Nbstagiaire" class="form-control" id="NbStagiaire" placeholder="5">
+                    <input type="number" name="Nbstagiaire" class="form-control" id="NbStagiaire" >
                 </div>
                     <label for="Note1">Evaluation des stagiaire</stagiaire></label>
                     1 <input type = "radio" id="Note1" name = "sat1" value = "1">
@@ -172,54 +172,98 @@
         else $ConfPilote ='';
 
         if (!$error) {
-            $query = $bdd->prepare('SELECT  company_name, mail, sector_of_activity, number_of_trainees, Town, evaluation_of_trainees, trust_of_pilot FROM company NATURAL JOIN location NATURAL JOIN evaluate WHERE company_name='%$nom%' ;');
+            $query = $bdd->prepare("SELECT  company_name, mail, sector_of_activity, number_of_trainees, Town, evaluation_of_trainees, trust_of_pilot FROM company NATURAL JOIN location NATURAL JOIN evaluate WHERE company_name=COALESCE(NULLIF('$nom',''),company_name)  AND Town=COALESCE(NULLIF('$ville',''),Town) AND sector_of_activity=COALESCE(NULLIF('$secteur',''),sector_of_activity) AND number_of_trainees=COALESCE(NULLIF('$NbStagiaire',''),number_of_trainees) AND evaluation_of_trainees=COALESCE(NULLIF('$EvalStagiaire',''),evaluation_of_trainees) AND trust_of_pilot=COALESCE(NULLIF('$ConfPilote',''),trust_of_pilot);");
             $query->execute();
-            $results = $query->fetchALL(PDO::FETCH_OBJ);
+            $resultsub = $query->fetchALL(PDO::FETCH_OBJ);
             }
+        ?>
 
+        <div class="entreprise">
+
+            <div class="container-fluid">
+                <?php foreach ($resultsub as $a) : ?>
+                    <div class="row border border-dark border-2">
+                        <div class="col-5 border-end border-dark border-2">
+                            <p class=" title h2 text-decoration-underline" > Entreprise : <?= $a->company_name ?> </p>
+                            <article class="textnormale h5">
+                                <h5>Secteur d'activité : <?= $a->sector_of_activity ?></h5>
+                                <h5>Ville : <?= $a->Town ?></h5>
+
+                                <form>
+                                    <label for="Note">Mettre une note</label>
+                                    1 <input type = "radio" id="Note" name = "sat" value = "1">
+                                    2 <input type = "radio" id="Note" name = "sat" value = "2">
+                                    3 <input type = "radio" id="Note" name = "sat" value = "3">
+                                    4 <input type = "radio" id="Note" name = "sat" value = "4">
+                                    5 <input type = "radio" id="Note" name = "sat" value = "5">
+                                    <input type="submit" id="submit" value="Soumettre">
+                                </form>
+                            </article>
+                        </div>
+                        <div class="col-lg-6 bor ">
+                            <article class="textnormale h5 lh-base">
+                                <h5>Nombre de stagaire déja embauché : <?= $a->number_of_trainees ?></h5>
+                                <h5>Note des stagiaire : <?= $a->evaluation_of_trainees ?></h5>
+                                <div id="blocktxt1">
+                                    <h5>Confiance du pilote de promotion : <?= $a->trust_of_pilot ?></h5>
+                                    <h5>Adresse mail : <?= $a->mail?></h5>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                    <br>
+                <?php endforeach; ?>
+            </div>
+        </div>
+
+
+    <?php
     }
-
-    ?>
-
-
-
-    <div class="entreprise">
+    else{
+        ?>
+        <div class="entreprise">
 
             <div class="container-fluid">
                 <?php foreach ($results as $e) : ?>
-                <div class="row border border-dark border-2">
-                    <div class="col-5 border-end border-dark border-2">
-                        <p class=" title h2 text-decoration-underline" > Entreprise : <?= $e->company_name ?> </p>
-                            <article class="textnormale h5">
-                            <h5>Secteur d'activité : <?= $e->sector_of_activity ?></h5>
-                            <h5>Ville : <?= $e->Town ?></h5>
+        <div class="row border border-dark border-2">
+            <div class="col-5 border-end border-dark border-2">
+                <p class=" title h2 text-decoration-underline" > Entreprise : <?= $e->company_name ?> </p>
+                <article class="textnormale h5">
+                    <h5>Secteur d'activité : <?= $e->sector_of_activity ?></h5>
+                    <h5>Ville : <?= $e->Town ?></h5>
 
-                            <form>
-                                <label for="Note">Mettre une note</label>
-                                1 <input type = "radio" id="Note" name = "sat" value = "1">
-                                2 <input type = "radio" id="Note" name = "sat" value = "2">
-                                3 <input type = "radio" id="Note" name = "sat" value = "3">
-                                4 <input type = "radio" id="Note" name = "sat" value = "4">
-                                5 <input type = "radio" id="Note" name = "sat" value = "5">
-                                <input type="submit" id="submit" value="Soumettre">
-                            </form>
-                        </article>
+                    <form>
+                        <label for="Note">Mettre une note</label>
+                        1 <input type = "radio" id="Note" name = "sat" value = "1">
+                        2 <input type = "radio" id="Note" name = "sat" value = "2">
+                        3 <input type = "radio" id="Note" name = "sat" value = "3">
+                        4 <input type = "radio" id="Note" name = "sat" value = "4">
+                        5 <input type = "radio" id="Note" name = "sat" value = "5">
+                        <input type="submit" id="submit" value="Soumettre">
+                    </form>
+                </article>
+            </div>
+            <div class="col-lg-6 bor ">
+                <article class="textnormale h5 lh-base">
+                    <h5>Nombre de stagaire déja embauché : <?= $e->number_of_trainees ?></h5>
+                    <h5>Note des stagiaire : <?= $e->evaluation_of_trainees ?></h5>
+                    <div id="blocktxt1">
+                        <h5>Confiance du pilote de promotion : <?= $e->trust_of_pilot ?></h5>
+                        <h5>Adresse mail : <?= $e->mail?></h5>
                     </div>
-                    <div class="col-lg-6 bor ">
-                        <article class="textnormale h5 lh-base">
-                            <h5>Nombre de stagaire déja embauché : <?= $e->number_of_trainees ?></h5>
-                            <h5>Note des stagiaire : <?= $e->evaluation_of_trainees ?></h5>
-                            <div id="blocktxt1">
-                                <h5>Confiance du pilote de promotion : <?= $e->trust_of_pilot ?></h5>
-                                <h5>Adresse mail : <?= $e->mail?></h5>
-                            </div>
-                        </article>
-                    </div>
-                </div>
-                <br>
-            <?php endforeach; ?>
+                </article>
+            </div>
         </div>
-    </div>
+        <br>
+        <?php endforeach; ?>
+        </div>
+        </div>
+
+        <?php
+        }
+        ?>
+
+
 
 
 
