@@ -29,7 +29,7 @@
 
     <!-- Titre -->
     <div id="title">
-        <h1>Titre</h1>
+        <h1>CESI-TON-STAGE</h1>
     </div>
 
 </section>
@@ -81,13 +81,13 @@
 
 
                 <label>Nom de l'étudiant</label>
-                <input id="NomEtudiant" name="NomEtudiant" type="text" class="form-control" placeholder="RIGOT" form-group">
+                <input id="NomEtudiant" name="nom" type="text" class="form-control" placeholder="RIGOT" form-group">
                 <label>Prénom de l'étudiant</label>
-                <input id="PrenomEtudiant" name="PrenomEtudiant" type="text" class="form-control" placeholder="Jane" onkeypress="verifierCaracteres(event); return false;>
+                <input id="PrenomEtudiant" name="prenom" type="text" class="form-control" placeholder="Jane" onkeypress="verifierCaracteres(event); return false;>
                     <div class="form-group">
 
                 <label for="Role">Role</label>
-                <select id="Role" name="Role" class="form-control">
+                <select id="Role" name="role" class="form-control">
                     <option value="">Liste de choix...</option>
                     <option value="">Pilote</option>
                     <option value="">Delegue</option>
@@ -96,7 +96,7 @@
 
                 <div class="form-group">
                     <label for="Etablissement">Etablisement</label>
-                    <select id="Etablissement" name="Etablissement" class="form-control">
+                    <select id="Etablissement" name="centre" class="form-control">
                         <option value="">Liste de choix...</option>
                         <option value="">Strasbourg</option>
                         <option value="">Nancy</option>
@@ -106,7 +106,7 @@
                 </div>
                 <div class="form-group">
                     <label for="Promotion">Promotion</label>
-                    <select id="Promotion" name="Promotion" class="form-control">
+                    <select id="Promotion" name="promo" class="form-control">
                         <option value="">Liste de choix...</option>
                         <option value="">A1</option>
                         <option value="">A2</option>
@@ -119,20 +119,15 @@
 
                 <div class="form-group">
                     <label for="Identifiant">Identifiant</label>
-                    <input id="Identifiant" name="Identifiant" type="text" class="form-control" placeholder="J.Rigot" onkeypress="verifierCaracteres(event); return false;>
+                    <input id="Identifiant" name="login" type="text" class="form-control" placeholder="J.Rigot" onkeypress="verifierCaracteres(event); return false;>
                     </div>
 
                     <div class="form-group">
                     <label for="Mot de passe">Mot de passe</label>
-                    <input id="MotDePasse" name="MotDePasse" type="text" class="form-control" placeholder="cesi1234" onkeypress="verifierCaracteres(event); return false;>
+                    <input id="MotDePasse" name="pwd" type="text" class="form-control" placeholder="cesi1234" onkeypress="verifierCaracteres(event)"; return false;>
                     </div>
-
-
-
-
-                    <br>
-                    <input id="submit" name="submit"  type="submit" value="Soumettre">
-
+                    <button id="BoutonSoumettre" name="soumettre" type="button" class="btn btn-lg btn-secondary">Soumettre</button>
+                </div>
             </fieldset>
         </form>
     </div>
@@ -153,7 +148,7 @@
                     <div class="col-6 col-md-4"></div>
                     <div class="col-6 col-md-4">Promotion :</div>
 
-                    <div class="col-6 col-md-4"><input id="NomUser" name="NomUser" type="text" class="form-control" placeholder="Eberle" ></div>
+                    <div class="col-6 col-md-4"><input id="NomUser" name="NomUser" type="text" class="form-control" placeholder="" value=""></div>
                     <div class="col-6 col-md-4"></div>
                     <div class="col-6 col-md-4">
                         <div class="btn-group" role="group">
@@ -174,9 +169,9 @@
                     <div class="col-6 col-md-4"></div>
                     <div class="col-6 col-md-4">Identifiant :</div>
 
-                    <div class="col-6 col-md-4"><input id="PrenomUser" name="PrenomUser" type="text" class="form-control" placeholder="Alexandre" ></div>
+                    <div class="col-6 col-md-4"><input id="PrenomUser" name="PrenomUser" type="text" class="form-control" placeholder="" value="" ></div>
                     <div class="col-6 col-md-4"></div>
-                    <div class="col-6 col-md-4"><input id="IdUser" name="IdUser" type="text" class="form-control" placeholder="Neonyx"></div>
+                    <div class="col-6 col-md-4"><input id="IdUser" name="IdUser" type="text" class="form-control" placeholder="" value=""></div>
 
                     <div class="col-6 col-md-4">Etablissement :</div>
                     <div class="col-6 col-md-4"></div>
@@ -187,7 +182,7 @@
                             <button id="btnGroupDrop1" name="btnGroupDrop1" type="button" class="btn btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                                 <label>Liste de choix...</label>
                             </button>
-                            <ul class="dropdown-menu" id="DropdownMenu" aria-labelledby="btnGroupDrop1" name="DropdownMenu">
+                            <ul class="dropdown-menu" id="DropdownMenu" aria-labelledby="btnGroupDrop1" name="centre">
                                 <li><a class="dropdown-item" href="#">Strasbourg</a></li>
                                 <li><a class="dropdown-item" href="#">Nancy</a></li>
                                 <li><a class="dropdown-item" href="#">Paris</a></li>
@@ -195,15 +190,15 @@
                         </div>
                     </div>
                     <div class="col-6 col-md-4"></div>
-                    <div class="col-6 col-md-4"><input id="MdpUser" name="MdpUser" type="text" class="form-control" placeholder="Un MDP"></div>
+                    <div class="col-6 col-md-4"><input id="MdpUser" name="MdpUser" type="text" class="form-control" placeholder="" value=""></div>
 
                     <div class="col-6 col-md-4">Rôle :</div>
                     <div class="col-6 col-md-4"></div>
                     <div class="col-6 col-md-4">Permission :</div>
 
-                    <div class="col-6 col-md-4"><input id="roleUser" name="roleUser" type="text" class="form-control" placeholder="Eleve"></div>
+                    <div class="col-6 col-md-4"><input id="roleUser" name="roleUser" type="text" class="form-control" placeholder="" value=""></div>
                     <div class="col-6 col-md-4"></div>
-                    <div class="col-6 col-md-4"><input id="permission" name="permission" type="text" class="form-control" placeholder="Admin"></div>
+                    <div class="col-6 col-md-4"><input id="permission" name="permission" type="text" class="form-control" placeholder="" value=""></div>
                     <br><br><br>
 
                     <div id="button1" class="col-6 col-md-4"><button id="BoutonValider" name="BoutonValider" type="button" class="btn btn-lg btn-secondary">Valider la modification</button></div>
