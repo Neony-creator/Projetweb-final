@@ -1,0 +1,96 @@
+#title{
+
+    padding : 1em;
+    text-align : center;
+}
+
+
+#WL
+{
+    float: right;
+    padding-right: 1em;
+    padding-top: 1em;
+}
+
+
+#logo{
+    float: left;
+    padding-left: 1em;
+    padding-top: 1em;
+
+}
+
+#navigbar{
+    clear:left;
+}
+
+#mynavbar{
+    justify-content:center;
+}
+
+.title h1 {
+    text-decoration: underline;
+}
+
+#title1{
+    float : left;
+}
+
+#title2{
+    float : left;
+}
+
+#blocktxt1{
+    clear : left;
+}
+
+#section1{
+
+}
+
+#section2{
+    padding: 2em;
+}
+
+
+#progressbar{
+    margin-top: 1.2em;
+}
+
+#progressbar2{
+    margin-top: 1.2em;
+}
+
+
+@media screen {
+    .bor{
+        border: 1rem solid;
+        border: aqua;
+
+    }
+
+}
+
+@media handheld and (max-device-width: 480px){
+    .bor{
+        border: 4rem solid;
+    }
+
+}
+
+.checked {
+    color: orange;
+}
+
+
+.note  {
+    display: flex;
+
+}
+
+
+.eval {
+    width: 50%;
+
+}
+
