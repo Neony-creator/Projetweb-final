@@ -107,7 +107,7 @@
 if(isset($_GET['er']))
 {
     if($_GET['er']) {
-        echo 'bonjour';
+        echo 'Erreur d\'identification';
     }
 }
 
