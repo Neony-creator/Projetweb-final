@@ -9,7 +9,7 @@ class ManagerBdd
         $error = false;
 
         try {                                                                   /*Tente une connexion...*/
-            $bdd = new PDO('mysql:dbname=projetweb;host=127.0.0.1:3306', "root", "CESI123");                 /*Creation objet PDO et init de la connexion*/
+            $bdd = new PDO('mysql:dbname=projetweb;host=127.0.0.1:3306', "root", "cesi");                 /*Creation objet PDO et init de la connexion*/
             $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);/*Définition de toutes erreurs en tant qu'Exception*/
         }
 

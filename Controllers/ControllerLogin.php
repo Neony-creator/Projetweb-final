@@ -19,11 +19,11 @@ class ControllerLogin
         $permission=$databdd->permission;
 
             if (password_verify($passhash,$pdwhash )) { //verifie la validite du mots de passe
-                setcookie('id_user', $id, time()+43200);
-                setcookie('permission', $permission, time()+43200);
+                setcookie('id_user', $id, time()+43200, '/');
+                setcookie('permission', $permission, time()+43200, '/');
                 //echo $_COOKIE['id_user']; test
                 //echo $_COOKIE['permission'];
-                header('location: /Projetweb-final/Views/Accueil.php');
+                header('location: /Projetweb-final/Views/EntrepriseGestion.php');
             }
             else {
                 echo "Password incorrect";
