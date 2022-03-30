@@ -1,0 +1,168 @@
+#title{
+
+    padding : 1em;
+    text-align: center;
+}
+
+
+#WL
+{
+    float: right;
+    padding-right: 1em;
+    padding-top: 1em;
+}
+
+
+#logo{
+    float: left;
+    padding-left: 1em;
+    padding-top: 1em;
+
+}
+
+#navigbar{
+    clear:left;
+}
+
+#mynavbar{
+    justify-content:center;
+}
+
+
+#image1 {
+    padding-top: 5em;
+    object-fit: contain;
+    height:100%;
+    width: 100%;
+}
+
+#coltxt{
+
+    padding-top: 5em;
+
+}
+
+.bubble{
+    margin-left: 20px;
+    margin-top: 3%;
+}
+
+table{
+    border-collapse: collapse;
+    margin-left: 30px;
+    margin-bottom: 10px;
+    width: 75%;
+
+
+}
+
+.n{
+    border: 1px solid black;
+    padding: 10px;
+
+
+
+}
+
+td{
+    vertical-align : top;
+    padding-top:10px;
+    padding-bottom:10px;
+}
+
+.recherche {
+
+    margin-top: 3%;
+    margin-right: 43px;
+    border: solid;
+    width: 20%;
+    float: left;
+}
+
+.droite{
+    margin-left: 420px;
+}
+
+.droitee{
+    margin-left: 400px;
+}
+.droiteee{
+    margin-left: 368px;
+}
+
+
+.d{
+    margin-left: 340px;
+}
+
+.dd{
+    margin-left: 320px;
+}
+
+.gauche{
+    margin-left: 120px;
+}
+
+.g{
+    margin-left: 120px;
+}
+
+.valider{
+    margin-left: 120px;
+    margin-top: 10px;
+}
+
+.creer{
+    margin-left: 45px;
+}
+
+.supprimer{
+    margin-left: 45px;
+}
+
+
+
+#titreUser{
+    padding-left: 2em;
+}
+
+#box{
+    padding: 2em;
+}
+
+#box2{
+    padding: 2em;
+}
+
+
+#MegaBox{
+    padding-top: 2em;
+}
+
+#BoutonSoumettre{
+    width: 100%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+
+@media (max-width: 480px) {
+    .recherche {
+        padding-top: 2em;
+        float : none;
+        width: 100%;
+    }
+    #button1{
+        float : none;
+        width: 100%;
+        padding-top: 2em;
+    }
+    #button2{
+        float : none;
+        width: 100%;
+    }
+    #button3{
+        float : none;
+        width: 100%;
+    }
+}

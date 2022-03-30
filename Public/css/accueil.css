@@ -1,0 +1,66 @@
+#title{
+
+    padding : 1em;
+    text-align: center;
+}
+
+
+#WL
+{
+    float: right;
+    padding-right: 1em;
+    padding-top: 1em;
+}
+
+
+#logo{
+    float: left;
+    padding-left: 1em;
+    padding-top: 1em;
+
+}
+
+#navigbar{
+    clear:left;
+}
+
+#mynavbar{
+    justify-content:center;
+}
+
+
+#image1 {
+    padding-top: 5em;
+    object-fit: contain;
+    height:100%;
+    width: 100%;
+}
+
+#coltxt{
+    padding-top: 5em;
+
+}
+
+
+img {
+    height: 100%;
+    width: 100%;
+}
+
+@media (max-width: 480px) {
+    #coltxt {
+        padding-top: 2em;
+        float : none;
+    }
+    #image1 {
+        padding-top: 2em;
+    }
+    #logo{
+        height: 15%;
+        width: 15%;
+    }
+    #WL{
+        padding-right: 0.5em;
+        padding-top: 0.5em;
+    }
+}
