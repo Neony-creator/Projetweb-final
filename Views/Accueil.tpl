@@ -1,3 +1,5 @@
+{*Smarty*}
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -11,69 +13,9 @@
     <title>PROJET WEB, groupe 4</title>
 </head>
 
-<section class="top">
-    <!-- Logo -->
-    <div id="logo">
-        <p> <img src="/Public/file/logo.png" alt="logo cesi" title="Qu'est ce qu'il est beau quand même ! "/> </p>
-    </div>
-
-    <!-- Bouton Wish-list -->
-    <div id="WL">
-
-        <a href ="#">
-            <button type="button" class="btn btn-lg btn-dark">Wish-list</button>
-        </a>
-    </div>
-
-    <!-- Titre -->
-        <div id="title">
-            <h1>Titre</h1>
-        </div>
-
-</section>
-
-<header class="sticky-top">
-    <!-- Barre de navigation -->
-    <div id="navigbar">
-        <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-            <div class="container-fluid">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse btn-lg " id="mynavbar">
-                    <ul class="navbar-nav ">
-                        <li class="nav-item" style="padding-right : 2em;">
-                            <a class="nav-link" href="#">Acceuil</a>
-                        </li>
-                        <li class="nav-item " style="padding-right : 2em;">
-                            <a class="nav-link" href="#">Connection</a>
-                        </li>
-                        <li class="nav-item" style="padding-right : 2em;">
-                            <a class="nav-link" href="#">Entreprise</a>
-                        </li>
-                        <li class="nav-item" style="padding-right : 2em;">
-                            <a class="nav-link" href="#">Stage</a>
-                        </li>
-                        <li class="nav-item" style="padding-right : 2em;">
-                            <a class="nav-link" href="#">Candidature</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Gestion
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <li><a class="dropdown-item" href="#">Gestion entreprise</a></li>
-                                <li><a class="dropdown-item" href="#">Gestion stage</a></li>
-                                <li><a class="dropdown-item" href="#">Gestion etudiant</a></li>
-                                <li><a class="dropdown-item" href="#">Gestion délégué</a></li>
-                                <li><a class="dropdown-item" href="#">Gestion pilote</a></li>
-                            </ul>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </div>
-</header>
+{block name=body}
+{include "C:/Users/pclau/IdeaProjects/Projetweb-final/Controllers/tpl/header.tpl"}
+<body>
 
 <!-- Body -->
 
@@ -110,44 +52,7 @@
 </body>
 
 <!-- Footer -->
-<footer class="bg-light text-center text-lg-start">
-    <!-- Grid container -->
-    <div class="container p-4">
-        <!--Grid row-->
-        <div class="row">
-            <!--Grid column-->
-            <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
-                <h5 class="text-uppercase">Footer text</h5>
-
-                <p>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste atque ea quis
-                    molestias. Fugiat pariatur maxime quis culpa corporis vitae repudiandae
-                    aliquam voluptatem veniam, est atque cumque eum delectus sint!
-                </p>
-            </div>
-            <!--Grid column-->
-
-            <!--Grid column-->
-            <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
-                <h5 class="text-uppercase">Footer text</h5>
-
-                <p>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste atque ea quis
-                    molestias. Fugiat pariatur maxime quis culpa corporis vitae repudiandae
-                    aliquam voluptatem veniam, est atque cumque eum delectus sint!
-                </p>
-            </div>
-            <!--Grid column-->
-        </div>
-        <!--Grid row-->
-    </div>
-    <!-- Grid container -->
-
-    <!-- Copyright -->
-    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-        © 2022 Copyright:
-        <a class="text-dark" href="https://www.cesi.fr//">Cesi.fr</a>
-    </div>
-    <!-- Copyright -->
-</footer>
+{include "C:/www/smarty/tpl/footer.tpl"}
+{/block}
+</body>
 </html>
