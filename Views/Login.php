@@ -107,7 +107,8 @@
 if(isset($_GET['er']))
 {
     if($_GET['er']) {
-        echo 'Erreur d\'identification';
+        $message='Mot de passe ou identifiant incorrect';
+        echo '<script type="text/javascript">window.alert("'.$message.'");</script>';
     }
 }
 

@@ -7,6 +7,10 @@ require_once '../Models/ManagerUtilisateur.php';
 //$a->getLog();
 //echo $a->login;
 
+class ControllerGestionUtilisateur
+
+{
+
 }
 
 $a="";

@@ -1,4 +1,8 @@
 <!doctype html>
+<?php
+echo $_COOKIE['id_user'] ;
+?>
+
 <html lang="en">
 <head>
     <!-- Required meta tags -->

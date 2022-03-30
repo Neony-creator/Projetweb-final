@@ -124,7 +124,8 @@
 </div>
 <?php
 if(isset($_SESSION['utilisateur'])){
-require_once '../Controllers/ControllerGestionUtilisateur.php';
+
+
 $data= new ControllerGestionUtilisateur();
 $data=$data->ReadUtilisateur();
 foreach ($data as $datas)
