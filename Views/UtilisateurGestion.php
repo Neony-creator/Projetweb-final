@@ -122,7 +122,18 @@
     </form>
 </div>
 </div>
+<?php
+if(isset($_SESSION['utilisateur'])){
+require_once '../Controllers/ControllerGestionUtilisateur.php';
+$data= new ControllerGestionUtilisateur();
+$data=$data->ReadUtilisateur();
+foreach ($data as $datas)
+{
 
+
+?>
+
+<form action="/Controllers/ControllerGestionUtilisateur.php"
 <div class="container" id="MegaBox">
     <div class="row">
         <div id="titreUser" class="col-md-12 border border-dark">
@@ -138,7 +149,7 @@
                     <div class="col-6 col-md-4"></div>
                     <div class="col-6 col-md-4">Promotion :</div>
 
-                    <div class="col-6 col-md-4"><input id="NomUser" name="NomUser" type="text" class="form-control" placeholder="" value=""></div>
+                    <div class="col-6 col-md-4"><input id="NomUser" name="NomUser" type="text" class="form-control" placeholder="" value=$datas->name></div>
                     <div class="col-6 col-md-4"></div>
                     <div class="col-6 col-md-4">
                         <div class="btn-group" role="group">
@@ -207,6 +218,11 @@
         </div>
     </div>
 </div>
+</form>
+<?php
+}
+}
+?>
 
 
 
@@ -222,7 +238,7 @@
 </body>
 
 <!-- Footer -->
-<footer class="bg-light text-center text-lg-start">
+<footer class="bg-light text-center text-lg-start footer">
     <!-- Grid container -->
     <div class="container p-4">
         <!--Grid row-->
