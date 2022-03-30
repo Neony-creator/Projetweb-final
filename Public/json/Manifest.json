@@ -8,9 +8,14 @@
   "orientation": "portrait-primary",
   "icons": [
     {
-      "src": "../Public/file/mobile.png",
+      "src": "../file/mobile.png",
       "type": "image/png",
       "sizes": "72x72"
+    },
+    {
+      "src": "../file/mobilee.png",
+      "type": "image/png",
+      "sizes": "192x192"
     }
   ]
 }
