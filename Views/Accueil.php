@@ -118,24 +118,26 @@
         <div class="row">
             <!--Grid column-->
             <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
-                <h5 class="text-uppercase">Footer text</h5>
+                <h5 class="text-uppercase">CESI Strasbourg</h5>
 
                 <p>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste atque ea quis
-                    molestias. Fugiat pariatur maxime quis culpa corporis vitae repudiandae
-                    aliquam voluptatem veniam, est atque cumque eum delectus sint!
+                    67380 Lingolsheim<br>
+                    Parc des Tanneries<br>
+                    Lingolsheim<br>
+                    France
                 </p>
             </div>
             <!--Grid column-->
 
             <!--Grid column-->
-            <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
-                <h5 class="text-uppercase">Footer text</h5>
+            <div style="text-align: center" class="col-lg-6 col-md-12 mb-4 mb-md-0">
+                <h5 class="text-uppercase">Retrouvez l’actualité de CESI sur</h5>
 
                 <p>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste atque ea quis
-                    molestias. Fugiat pariatur maxime quis culpa corporis vitae repudiandae
-                    aliquam voluptatem veniam, est atque cumque eum delectus sint!
+                    <a href="https://twitter.com/CesiStrasbourg">Twitter</a><br>
+                    <a href="https://www.facebook.com/cesistrasbourg/">Facebook</a><br>
+                    <a href="https://www.youtube.com/channel/UCWanyqUivV6rjbTABGFI8pA">Youtube</a><br>
+                    <a href="https://www.instagram.com/campus_cesi/?hl=fr">Instagram</a><br>
                 </p>
             </div>
             <!--Grid column-->
@@ -146,6 +148,8 @@
 
     <!-- Copyright -->
     <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        <a class="text-dark" href="https://www.economie.gouv.fr/entreprises/site-internet-mentions-obligatoires">Mention légales</a>
+        <br>
         © 2022 Copyright:
         <a class="text-dark" href="https://www.cesi.fr//">Cesi.fr</a>
     </div>

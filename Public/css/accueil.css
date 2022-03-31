@@ -47,6 +47,7 @@ img {
     width: 100%;
 }
 
+
 @media (max-width: 480px) {
     #coltxt {
         padding-top: 2em;
