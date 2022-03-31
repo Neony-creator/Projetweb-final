@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.0, created on 2022-03-30 14:25:58
+/* Smarty version 4.1.0, created on 2022-03-31 16:41:31
   from 'C:\Users\pclau\IdeaProjects\Projetweb-final\Controllers\tpl\header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.0',
-  'unifunc' => 'content_62444c569ce850_39207092',
+  'unifunc' => 'content_6245bd9b303c38_35697999',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'afce1f4ae512e6179df3ef45c364dce9144e587e' => 
     array (
       0 => 'C:\\Users\\pclau\\IdeaProjects\\Projetweb-final\\Controllers\\tpl\\header.tpl',
-      1 => 1648633149,
+      1 => 1648737672,
       2 => 'file',
     ),
   ),
@@ -20,15 +20,11 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_62444c569ce850_39207092 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6245bd9b303c38_35697999 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 
 <section class="top">
     <!-- Logo -->
-    <div id="logo">
-        <p> <img src="<?php echo $_smarty_tpl->tpl_vars['urls']->value['img_url'];?>
-../web/img/logo.png" alt="logo cesi" title="Qu'est ce qu'il est beau quand même ! "/> </p>
-    </div>
 
     <!-- Bouton Wish-list -->
     <div id="WL">
@@ -61,7 +57,7 @@ function content_62444c569ce850_39207092 (Smarty_Internal_Template $_smarty_tpl)
                             <a class="nav-link" href="#">Acceuil</a>
                         </li>
                         <li class="nav-item " style="padding-right : 2em;">
-                            <a class="nav-link" href="#">Connection</a>
+                            <a class="nav-link" href="C:/Users/pclau/IdeaProjects/Projetweb-final/Views/Login.php">Connection</a>
                         </li>
                         <li class="nav-item" style="padding-right : 2em;">
                             <a class="nav-link" href="#">Entreprise</a>
