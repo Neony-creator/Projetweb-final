@@ -29,7 +29,7 @@
 
     <!-- Titre -->
         <div id="title">
-            <h1>CESI ton stage</h1>
+            <h1>CESI-TON-STAGE</h1>
         </div>
 
 </section>
