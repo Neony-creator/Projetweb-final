@@ -9,6 +9,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="/Public/css/postuler.css" />
     <title>Postuler - PROJET WEB</title>
+    <script src="/Public/js/postuler.js"> </script>
 </head>
 
 <section class="top">
@@ -20,7 +21,7 @@
     <!-- Bouton Wish-list -->
     <div id="WL">
 
-        <a href ="#">
+        <a href ="Souhait.php">
             <button type="button" class="btn btn-lg btn-dark">Wish-list</button>
         </a>
     </div>
@@ -28,7 +29,7 @@
     <!-- Titre -->
 
     <div id="title">
-        <h1>Titre</h1>
+        <h1>CESI-TON-STAGE</h1>
     </div>
 
 
@@ -45,23 +46,31 @@
                 <div class="collapse navbar-collapse btn-lg " id="mynavbar">
                     <ul class="navbar-nav ">
                         <li class="nav-item" style="padding-right : 2em;">
-                            <a class="nav-link" href="#">Acceuil</a>
+                            <a class="nav-link" href="Accueil.php">Acceuil</a>
                         </li>
                         <li class="nav-item " style="padding-right : 2em;">
-                            <a class="nav-link" href="#">Connection</a>
+                            <a class="nav-link" href="Login.php">Connection</a>
                         </li>
                         <li class="nav-item" style="padding-right : 2em;">
-                            <a class="nav-link" href="#">Entreprise</a>
+                            <a class="nav-link" href="EntrepriseAffichage.php">Entreprise</a>
                         </li>
                         <li class="nav-item" style="padding-right : 2em;">
-                            <a class="nav-link" href="#">Stage</a>
+                            <a class="nav-link" href="StageAffichage.php">Stage</a>
                         </li>
                         <li class="nav-item" style="padding-right : 2em;">
-                            <a class="nav-link" href="#">Candidature</a>
+                            <a class="nav-link" href="Candidature.php">Candidature</a>
                         </li>
-                        <li class="nav-item" style="padding-right : 2em;">
-                            <a class="nav-link" href="#">Gestion</a>
-                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Gestion
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <li><a class="dropdown-item" href="EntrepriseGestion.php">Gestion entreprise</a></li>
+                                <li><a class="dropdown-item" href="StageGestion.php">Gestion stage</a></li>
+                                <li><a class="dropdown-item" href="UtilisateurGestion.php">Gestion etudiant</a></li>
+                                <li><a class="dropdown-item" href="#">Gestion délégué</a></li>
+                                <li><a class="dropdown-item" href="UtilisateurGestion.php">Gestion pilote</a></li>
+                            </ul>
                     </ul>
                 </div>
             </div>
@@ -82,19 +91,19 @@
 
                 <td>
                     <label for="mail"></label>
-                    <input id= mail type = "email" placeholder="A :">
+                    <input id= "mail"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" type = "email" placeholder="A :" onkeypress="verifierCaracteres(event); return false;">
                 </td>
             </tr>
             <tr>
                 <td>
                     <label for="objet"></label>
-                    <input id="objet" type = "text" placeholder="objet">
+                    <input id="objet" type = "text" placeholder="objet" onkeypress="verifierCaracteres(event); return false;">
                 </td>
             </tr>
             <tr>
                 <td>
                     <label for="demande"></label>
-                    <textarea id="demande" type = "text" placeholder="Saisir votre demande"></textarea>
+                    <textarea id="demande" type = "text" placeholder="Saisir votre demande" onkeypress="verifierCaracteres(event); return false;"></textarea>
                 </td>
             </tr>
             <tr>

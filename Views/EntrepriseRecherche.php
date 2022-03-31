@@ -1,23 +1,24 @@
 <!doctype html>
 <?php
-    $dsn = 'mysql:dbname=projetweb;localhost';                /*Chaine de connexion avec IP et BDD */
-    $username_bdd = "root";                                                 /*Nom d'utilisateur pour MySQL */
-    $password_bdd = "cesi";                                               /*Mot de passe pour MySQL*/
-    $error = false;                                                         /*Erreur de connexion à false avant connexion*/
+$dsn = 'mysql:dbname=projetweb;localhost';                /*Chaine de connexion avec IP et BDD */
+$username_bdd = "root";                                                 /*Nom d'utilisateur pour MySQL */
+$password_bdd = "cesi";                                               /*Mot de passe pour MySQL*/
+$error = false;                                                         /*Erreur de connexion à false avant connexion*/
 
-    try {                                                                   /*Tente une connexion...*/
-        $bdd = new PDO($dsn, $username_bdd, $password_bdd);                 /*Creation objet PDO et init de la connexion*/
-        $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);      /*Définition de toutes erreurs en tant qu'Exception*/
-    } catch(PDOException $e) {                                              /*Si erreur attrapée*/
-        $error = $e->getMessage();                                          /*Stock le msg de l'erreur dans error*/
-        echo $error;
-    }
+try {                                                                   /*Tente une connexion...*/
+    $bdd = new PDO($dsn, $username_bdd, $password_bdd);                 /*Creation objet PDO et init de la connexion*/
+    $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);      /*Définition de toutes erreurs en tant qu'Exception*/
+} catch(PDOException $e) {                                              /*Si erreur attrapée*/
+    $error = $e->getMessage();                                          /*Stock le msg de l'erreur dans error*/
+    echo $error;
+}
 
 if (!$error) {
     $query = $bdd->prepare('SELECT  company_name, mail, sector_of_activity, number_of_trainees, Town, evaluation_of_trainees, trust_of_pilot FROM company NATURAL JOIN location NATURAL JOIN evaluate;');
     $query->execute();
     $results = $query->fetchALL(PDO::FETCH_OBJ);
 }
+
 ?>
 <html lang="en">
 <head>
@@ -41,21 +42,19 @@ if (!$error) {
     <!-- Bouton Wish-list -->
     <div id="WL">
 
-        <a href ="#">
+        <a href ="Souhait.php">
             <button type="button" class="btn btn-lg btn-dark">Wish-list</button>
         </a>
     </div>
 
     <!-- Titre -->
-    <div style="text-align: center;">
-        <div id="title">
-            <h1>Cesi ton stage</h1>
-        </div>
+    <div id="title">
+        <h1>Cesi ton stage</h1>
     </div>
 
 </section>
 
-<header  class="sticky-top">
+<header class="sticky-top">
     <!-- Barre de navigation -->
     <div id="navigbar">
         <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
@@ -66,30 +65,30 @@ if (!$error) {
                 <div class="collapse navbar-collapse btn-lg " id="mynavbar">
                     <ul class="navbar-nav ">
                         <li class="nav-item" style="padding-right : 2em;">
-                            <a class="nav-link" href="#">Acceuil</a>
+                            <a class="nav-link" href="Accueil.php">Acceuil</a>
                         </li>
                         <li class="nav-item " style="padding-right : 2em;">
-                            <a class="nav-link" href="#">Connection</a>
+                            <a class="nav-link" href="Login.php">Connection</a>
                         </li>
                         <li class="nav-item" style="padding-right : 2em;">
-                            <a class="nav-link" href="#">Entreprise</a>
+                            <a class="nav-link" href="EntrepriseAffichage.php">Entreprise</a>
                         </li>
                         <li class="nav-item" style="padding-right : 2em;">
-                            <a class="nav-link" href="#">Stage</a>
+                            <a class="nav-link" href="StageAffichage.php">Stage</a>
                         </li>
                         <li class="nav-item" style="padding-right : 2em;">
-                            <a class="nav-link" href="#">Candidature</a>
+                            <a class="nav-link" href="Candidature.php">Candidature</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Gestion
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <li><a class="dropdown-item" href="#">Gestion entreprise</a></li>
-                                <li><a class="dropdown-item" href="#">Gestion stage</a></li>
-                                <li><a class="dropdown-item" href="#">Gestion etudiant</a></li>
+                                <li><a class="dropdown-item" href="EntrepriseGestion.php">Gestion entreprise</a></li>
+                                <li><a class="dropdown-item" href="StageGestion.php">Gestion stage</a></li>
+                                <li><a class="dropdown-item" href="UtilisateurGestion.php">Gestion etudiant</a></li>
                                 <li><a class="dropdown-item" href="#">Gestion délégué</a></li>
-                                <li><a class="dropdown-item" href="#">Gestion pilote</a></li>
+                                <li><a class="dropdown-item" href="UtilisateurGestion.php">Gestion pilote</a></li>
                             </ul>
                     </ul>
                 </div>
@@ -103,79 +102,120 @@ if (!$error) {
 <body>
 
 
-    <div class="recherche">
-        <div class="container">
-            <h2>Rechercher</h2>
-            <form>
-                <fieldset>
+<div class="recherche">
+    <div class="container">
+        <h2>Rechercher</h2>
+        <form action=EntrepriseRecherche.php method="get">
+            <div class="form-group">
+                <label for="nom">Nom de l'entreprise</label>
+                <input type="text" class="form-control" id="nom" name="Nom" >
+            </div>
+
+            <div class="form-group">
+                <label for="Ville">Ville</label>
+                <input type="text" class="form-control" name="Ville" id="Ville" ">
+            </div>
+
+            <div class="form-group">
+                <label for="Secteur d'activité">Secteur d'activité</label>
+                <input type="text" class="form-control" name="Secteur" id="Secteur d'activité" ">
+            </div>
+            <div class="form-group">
+                <label for="NbStagiaire">Nombre de stagiaire</label>
+                <input type="number" name="Nbstagiaire" class="form-control" id="NbStagiaire" >
+            </div>
+            <label for="Note1">Evaluation des stagiaire</stagiaire></label>
+            1 <input type = "radio" id="Note1" name = "sat1" value = "1">
+            2 <input type = "radio" id="Note1" name = "sat1" value = "2">
+            3 <input type = "radio" id="Note1" name = "sat1" value = "3">
+            4 <input type = "radio" id="Note1" name = "sat1" value = "4">
+            5 <input type = "radio" id="Note1" name = "sat1" value = "5">
+
+            <label for="Note2">Confiance du pilote</label>
+            1 <input type = "radio" id="Note2" name = "sat2" value = "1">
+            2 <input type = "radio" id="Note2" name = "sat2" value = "2">
+            3 <input type = "radio" id="Note2" name = "sat2" value = "3">
+            4 <input type = "radio" id="Note2" name = "sat2" value = "4">
+            5 <input type = "radio" id="Note2" name = "sat2" value = "5">
 
 
-                    <div class="form-group">
-                        <label for="nom">Nom de l'entreprise</label>
-                        <input type="text" class="form-control" id="nom" placeholder="Pierre GIRAUD">
+            <br>
+            <input type="submit" id="submit" name="submit" value="Soumettre">
+        </form>
+    </div>
+</div>
+
+<?php
+if (isset($_GET['submit'])){
+    $nom = $_GET['Nom'];
+    $ville = $_GET['Ville'];
+    $secteur = $_GET['Secteur'];
+    $NbStagiaire = $_GET['Nbstagiaire'];
+
+    if (isset($_GET['sat1'])){
+        $EvalStagiaire = $_GET['sat1'];
+    }
+    else $EvalStagiaire ='';
+
+    if (isset($_GET['sat2'])){
+        $ConfPilote = $_GET['sat2'];
+    }
+    else $ConfPilote ='';
+
+    if (!$error) {
+        $query = $bdd->prepare("SELECT  company_name, mail, sector_of_activity, number_of_trainees, Town, evaluation_of_trainees, trust_of_pilot FROM company NATURAL JOIN location NATURAL JOIN evaluate WHERE company_name = COALESCE(NULLIF('$nom',''),company_name)  AND Town=COALESCE(NULLIF('$ville',''),Town) AND sector_of_activity=COALESCE(NULLIF('$secteur',''),sector_of_activity) AND number_of_trainees=COALESCE(NULLIF('$NbStagiaire',''),number_of_trainees) AND evaluation_of_trainees=COALESCE(NULLIF('$EvalStagiaire',''),evaluation_of_trainees) AND trust_of_pilot=COALESCE(NULLIF('$ConfPilote',''),trust_of_pilot);");
+        $query->execute();
+        $resultsub = $query->fetchALL(PDO::FETCH_OBJ);
+    }
+    ?>
+
+    <div class="entreprise">
+
+        <div class="container-fluid">
+            <?php foreach ($resultsub as $a) : ?>
+                <div class="row border border-dark border-2">
+                    <div class="col-5 border-end border-dark border-2">
+                        <p class=" title h2 text-decoration-underline" > Entreprise : <?= $a->company_name ?> </p>
+                        <article class="textnormale h5">
+                            <h5>Secteur d'activité : <?= $a->sector_of_activity ?></h5>
+                            <h5>Ville : <?= $a->Town ?></h5>
+
+                            <form>
+                                <label for="Note">Mettre une note</label>
+                                1 <input type = "radio" id="Note" name = "sat" value = "1">
+                                2 <input type = "radio" id="Note" name = "sat" value = "2">
+                                3 <input type = "radio" id="Note" name = "sat" value = "3">
+                                4 <input type = "radio" id="Note" name = "sat" value = "4">
+                                5 <input type = "radio" id="Note" name = "sat" value = "5">
+                                <input type="submit" id="submit" value="Soumettre">
+                            </form>
+                        </article>
                     </div>
-
-                    <div class="form-group">
-                        <label for="Ville">Ville</label>
-                        <input type="text" class="form-control" id="Ville" placeholder="Strasbourg">
+                    <div class="col-lg-6 bor ">
+                        <article class="textnormale h5 lh-base">
+                            <h5>Nombre de stagaire déja embauché : <?= $a->number_of_trainees ?></h5>
+                            <h5>Note des stagiaire : <?= $a->evaluation_of_trainees ?>/5</h5>
+                            <div id="blocktxt1">
+                                <h5>Confiance du pilote de promotion : <?= $a->trust_of_pilot ?></h5>
+                                <h5>Adresse mail : <?= $a->mail?></h5>
+                            </div>
+                        </article>
                     </div>
-
-                    <div class="form-group">
-                        <label for="selection">Secteur d'activité</label>
-                        <select id="selection" class="form-control">
-                            <option value="">Liste de choix...</option>
-                            <optgroup label="Groupe d'options">
-                                <option value="">Informatique</option>
-                                <option value="">BTP</option>
-                                <option value="">Générale</option>
-                            </optgroup>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="nbstagiaire">Nombre de stagiaire</label>
-                        <input type="number" class="form-control" id="nbstagiaire" placeholder="5">
-                    </div>
-
-                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-                    <div class="note">
-                        <div class="eval">
-                            <h6>Evaluation des stagiaires</h6>
-                        </div>
-                        <div class="etoile">
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star"></span>
-                            <span class="fa fa-star"></span>
-                        </div>
-                    </div>
-
-
-                    <div class="eval2">
-                        <h6>Appréciation des pilotes</h6>
-                    </div>
-
-                    <div class="etoile2">
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span>
-                        <span class="fa fa-star"></span>
-                    </div>
-                    <br>
-                    <input type="submit" id="submit" value="Soumettre">
-
-
-                </fieldset>
-            </form>
+                </div>
+                <br>
+            <?php endforeach; ?>
         </div>
     </div>
 
 
+    <?php
+}
+else{
+    ?>
     <div class="entreprise">
 
-            <div class="container-fluid">
-                <?php foreach ($results as $e) : ?>
+        <div class="container-fluid">
+            <?php foreach ($results as $e) : ?>
                 <div class="row border border-dark border-2">
                     <div class="col-5 border-end border-dark border-2">
                         <p class=" title h2 text-decoration-underline" > Entreprise : <?= $e->company_name ?> </p>
@@ -197,7 +237,7 @@ if (!$error) {
                     <div class="col-lg-6 bor ">
                         <article class="textnormale h5 lh-base">
                             <h5>Nombre de stagaire déja embauché : <?= $e->number_of_trainees ?></h5>
-                            <h5>Note des stagiaire : <?= $e->evaluation_of_trainees ?></h5>
+                            <h5>Note des stagiaire : <?= $e->evaluation_of_trainees ?>/5</h5>
                             <div id="blocktxt1">
                                 <h5>Confiance du pilote de promotion : <?= $e->trust_of_pilot ?></h5>
                                 <h5>Adresse mail : <?= $e->mail?></h5>
@@ -209,6 +249,12 @@ if (!$error) {
             <?php endforeach; ?>
         </div>
     </div>
+
+    <?php
+}
+?>
+
+
 
 
 
