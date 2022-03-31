@@ -74,10 +74,10 @@ $results = $query->fetchALL(PDO::FETCH_OBJ);
                             <a class="nav-link" href="Login.php">Connection</a>
                         </li>
                         <li class="nav-item" style="padding-right : 2em;">
-                            <a class="nav-link" href="EntrepriseAffichage.php">Entreprise</a>
+                            <a class="nav-link" href="EntrepriseRecherche.php">Entreprise</a>
                         </li>
                         <li class="nav-item" style="padding-right : 2em;">
-                            <a class="nav-link" href="StageAffichage.php">Stage</a>
+                            <a class="nav-link" href="StageRecherche.php">Stage</a>
                         </li>
                         <li class="nav-item" style="padding-right : 2em;">
                             <a class="nav-link" href="Candidature.php">Candidature</a>
