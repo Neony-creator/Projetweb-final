@@ -1,0 +1,9 @@
+DirectoryIndex ./Views/Accueil.php
+Options +Indexes 
+AuthType Basic
+AuthName "Page protégée" 
+
+AuthBasicProvider file 
+AuthUserFile "C:\xampp\apache\conf\users"
+
+Require valid-user
