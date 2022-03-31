@@ -123,6 +123,7 @@ class ManagerUtilisateur extends ManagerBdd
         $query->execute();
 
         $results = $query->fetchAll(PDO::FETCH_OBJ);
+
         return $results;
 
     }

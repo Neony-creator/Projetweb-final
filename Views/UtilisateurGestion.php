@@ -1,3 +1,7 @@
+<?php
+session_start();
+require_once '../Models/ManagerUtilisateur.php';
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -123,18 +127,19 @@
 </div>
 </div>
 <?php
-if(isset($_SESSION['utilisateur'])){
 
 
-$data= new ControllerGestionUtilisateur();
-$data=$data->ReadUtilisateur();
-foreach ($data as $datas)
+if(isset($_GET['utilisateur'])&& $_GET['utilisateur']==1){
+    $data=$_SESSION['utilisateur'];
+
+    foreach ($data as $datas)
 {
+
 
 
 ?>
 
-<form action="/Controllers/ControllerGestionUtilisateur.php"
+<form action="/Controllers/ControllerGestionUtilisateur.php">
 <div class="container" id="MegaBox">
     <div class="row">
         <div id="titreUser" class="col-md-12 border border-dark">
@@ -150,12 +155,12 @@ foreach ($data as $datas)
                     <div class="col-6 col-md-4"></div>
                     <div class="col-6 col-md-4">Promotion :</div>
 
-                    <div class="col-6 col-md-4"><input id="NomUser" name="NomUser" type="text" class="form-control" placeholder="" value=$datas->name></div>
+                    <div class="col-6 col-md-4"><input id="NomUser" name="NomUser" type="text" class="form-control" placeholder="" value=<?php echo $datas->user_name;?>></div>
                     <div class="col-6 col-md-4"></div>
                     <div class="col-6 col-md-4">
                         <div class="btn-group" role="group">
                             <button id="btnGroupDrop1" name="btnGroupDrop1" type="button" class="btn btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                <label>Liste de choix...</label>
+                                <label><?php echo $datas->promotion;?></label>
                             </button>
                             <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
                                 <li><a class="dropdown-item" href="#">A1</a></li>
@@ -171,9 +176,9 @@ foreach ($data as $datas)
                     <div class="col-6 col-md-4"></div>
                     <div class="col-6 col-md-4">Identifiant :</div>
 
-                    <div class="col-6 col-md-4"><input id="PrenomUser" name="PrenomUser" type="text" class="form-control" placeholder="" value="" ></div>
+                    <div class="col-6 col-md-4"><input id="PrenomUser" name="PrenomUser" type="text" class="form-control" placeholder="" value="<?php echo $datas->first_name;?>" ></div>
                     <div class="col-6 col-md-4"></div>
-                    <div class="col-6 col-md-4"><input id="IdUser" name="IdUser" type="text" class="form-control" placeholder="" value=""></div>
+                    <div class="col-6 col-md-4"><input id="IdUser" name="IdUser" type="text" class="form-control" placeholder="" value="<?php echo $datas->login;?>"></div>
 
                     <div class="col-6 col-md-4">Etablissement :</div>
                     <div class="col-6 col-md-4"></div>
@@ -182,7 +187,7 @@ foreach ($data as $datas)
                     <div class="col-6 col-md-4">
                         <div class="btn-group" role="group">
                             <button id="btnGroupDrop1" name="btnGroupDrop1" type="button" class="btn btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                <label>Liste de choix...</label>
+                                <label><?php echo $datas->facility;?></label>
                             </button>
                             <ul class="dropdown-menu" id="DropdownMenu" aria-labelledby="btnGroupDrop1" name="centre">
                                 <li><a class="dropdown-item" href="#">Strasbourg</a></li>
@@ -192,15 +197,15 @@ foreach ($data as $datas)
                         </div>
                     </div>
                     <div class="col-6 col-md-4"></div>
-                    <div class="col-6 col-md-4"><input id="MdpUser" name="MdpUser" type="text" class="form-control" placeholder="" value=""></div>
+                    <div class="col-6 col-md-4"><input id="MdpUser" name="MdpUser" type="text" class="form-control" placeholder="" value="<?php echo $datas->password;?>"></div>
 
                     <div class="col-6 col-md-4">Rôle :</div>
                     <div class="col-6 col-md-4"></div>
                     <div class="col-6 col-md-4">Permission :</div>
 
-                    <div class="col-6 col-md-4"><input id="roleUser" name="roleUser" type="text" class="form-control" placeholder="" value=""></div>
+                    <div class="col-6 col-md-4"><input id="roleUser" name="roleUser" type="text" class="form-control" placeholder="" value="<?php echo $datas->roles;?>"></div>
                     <div class="col-6 col-md-4"></div>
-                    <div class="col-6 col-md-4"><input id="permission" name="permission" type="text" class="form-control" placeholder="" value=""></div>
+                    <div class="col-6 col-md-4"><input id="permission" name="permission" type="text" class="form-control" placeholder="" value="<?php echo $datas->permission;?>"></div>
                     <br><br><br>
 
                     <div id="button1" class="col-6 col-md-4"><button id="BoutonValider" name="BoutonValider" type="button" class="btn btn-lg btn-secondary">Valider la modification</button></div>
@@ -221,7 +226,96 @@ foreach ($data as $datas)
 </div>
 </form>
 <?php
-}
+}}
+else{
+?>
+    <div class="container" id="MegaBox">
+        <div class="row">
+            <div id="titreUser" class="col-md-12 border border-dark">
+                <h3>Utilisateur </h3>
+            </div>
+
+
+
+            <div class="col-md-12 border border-top-0 border-dark">
+                <div id="box">
+                    <div class="row">
+                        <div class="col-6 col-md-4">Nom :</div>
+                        <div class="col-6 col-md-4"></div>
+                        <div class="col-6 col-md-4">Promotion :</div>
+
+                        <div class="col-6 col-md-4"><input id="NomUser" name="NomUser" type="text" class="form-control" placeholder="" value=></div>
+                        <div class="col-6 col-md-4"></div>
+                        <div class="col-6 col-md-4">
+                            <div class="btn-group" role="group">
+                                <button id="btnGroupDrop1" name="btnGroupDrop1" type="button" class="btn btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <label>Liste de choix...</label>
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                                    <li><a class="dropdown-item" href="#"></a></li>
+                                    <li><a class="dropdown-item" href="#">A1</a></li>
+                                    <li><a class="dropdown-item" href="#">A2</a></li>
+                                    <li><a class="dropdown-item" href="#">A3</a></li>
+                                    <li><a class="dropdown-item" href="#">A4</a></li>
+                                    <li><a class="dropdown-item" href="#">A5</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="col-6 col-md-4">Prénom :</div>
+                        <div class="col-6 col-md-4"></div>
+                        <div class="col-6 col-md-4">Identifiant :</div>
+
+                        <div class="col-6 col-md-4"><input id="PrenomUser" name="PrenomUser" type="text" class="form-control" placeholder="" value="" ></div>
+                        <div class="col-6 col-md-4"></div>
+                        <div class="col-6 col-md-4"><input id="IdUser" name="IdUser" type="text" class="form-control" placeholder="" value=""></div>
+
+                        <div class="col-6 col-md-4">Etablissement :</div>
+                        <div class="col-6 col-md-4"></div>
+                        <div class="col-6 col-md-4">Mot de passe :</div>
+
+                        <div class="col-6 col-md-4">
+                            <div class="btn-group" role="group">
+                                <button id="btnGroupDrop1" name="btnGroupDrop1" type="button" class="btn btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <label>Liste de choix...</label>
+                                </button>
+                                <ul class="dropdown-menu" id="DropdownMenu" aria-labelledby="btnGroupDrop1" name="centre">
+                                    <li><a class="dropdown-item" href="#"></a></li>
+                                    <li><a class="dropdown-item" href="#">Nancy</a></li>
+                                    <li><a class="dropdown-item" href="#">Paris</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-4"></div>
+                        <div class="col-6 col-md-4"><input id="MdpUser" name="MdpUser" type="text" class="form-control" placeholder="" value=""></div>
+
+                        <div class="col-6 col-md-4">Rôle :</div>
+                        <div class="col-6 col-md-4"></div>
+                        <div class="col-6 col-md-4">Permission :</div>
+
+                        <div class="col-6 col-md-4"><input id="roleUser" name="roleUser" type="text" class="form-control" placeholder="" value=""></div>
+                        <div class="col-6 col-md-4"></div>
+                        <div class="col-6 col-md-4"><input id="permission" name="permission" type="text" class="form-control" placeholder="" value=""></div>
+                        <br><br><br>
+
+                        <div id="button1" class="col-6 col-md-4"><button id="BoutonValider" name="BoutonValider" type="button" class="btn btn-lg btn-secondary">Valider la modification</button></div>
+                        <div id="button2" class="col-6 col-md-4"><button id="BoutonCreer" name="BoutonCreer" type="button" class="btn btn-lg btn-secondary">Créer un nouvel étudiant</button></div>
+                        <div id="button3" class="col-6 col-md-4"><button id="BoutonSupr" name="BoutonSupr" type="button" class="btn btn-lg btn-secondary">Supprimer</button></div>
+                        <br>
+                    </div>
+                </div>
+
+
+
+                <div id="box2" class="col-md-12 border-top border-dark">
+                    <h3>Statistique</h3><br>
+                    <p>Etat de la fiche de validation :<br><br> Etat de la fiche de stage :</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <?php
 }
 ?>
 

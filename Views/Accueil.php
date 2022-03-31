@@ -1,6 +1,6 @@
 <!doctype html>
 <?php
-echo $_COOKIE['id_user'] ;
+$_COOKIE['id_user'] ;
 ?>
 
 <html lang="en">
