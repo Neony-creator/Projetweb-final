@@ -1,0 +1,63 @@
+.recherche {
+
+    margin-top: 3%;
+    border: solid;
+    width: 20%;
+    float: left;
+}
+
+.checked {
+    color: orange;
+}
+
+
+.note  {
+    display: flex;
+
+}
+
+
+.eval {
+    width: 50%;
+
+}
+
+#title{
+    text-align: center;
+}
+
+#title1 {
+    float: left;
+}
+#title2{
+    float : left;
+}
+#blocktxt1{
+    clear : left;
+}
+
+.eval2 {
+    width: 50%;
+    float: left;
+}
+
+.etoile2 {
+
+    width: 50%;
+    margin-left: 50%;
+
+
+}
+
+.tout {
+    display: flex;
+}
+
+.entreprise{
+    width: 70%;
+    float: right;
+    margin-right: 5%;
+    margin-top: 3%;
+    margin-left: 5%;
+
+}

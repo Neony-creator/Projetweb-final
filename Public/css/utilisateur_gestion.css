@@ -1,6 +1,7 @@
 #title{
 
     padding : 1em;
+    text-align: center;
 }
 
 
@@ -119,3 +120,49 @@ td{
     margin-left: 45px;
 }
 
+
+
+#titreUser{
+    padding-left: 2em;
+}
+
+#box{
+    padding: 2em;
+}
+
+#box2{
+    padding: 2em;
+}
+
+
+#MegaBox{
+    padding-top: 2em;
+}
+
+#BoutonSoumettre{
+    width: 100%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+
+@media (max-width: 480px) {
+    .recherche {
+        padding-top: 2em;
+        float : none;
+        width: 100%;
+    }
+    #button1{
+        float : none;
+        width: 100%;
+        padding-top: 2em;
+    }
+    #button2{
+        float : none;
+        width: 100%;
+    }
+    #button3{
+        float : none;
+        width: 100%;
+    }
+}
