@@ -62,3 +62,10 @@
     margin-left: 5%;
 
 }
+
+@media (max-width: 480px) {
+    #recherche {
+        width: 100%;
+    }
+
+}
