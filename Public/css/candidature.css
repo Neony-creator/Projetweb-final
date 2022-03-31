@@ -79,5 +79,12 @@ td{
     float: left;
 }
 
+@media (max-width: 480px) {
+    #recherche {
+        width: 70%;
+        padding:2em;
+        margin-left: 14%;
+    }
 
+}
 

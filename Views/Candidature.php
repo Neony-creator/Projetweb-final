@@ -80,7 +80,7 @@
 
 
 <body>
-<div class="recherche">
+<div class="recherche" id="recherche">
     <div class="container">
         <h2>Rechercher</h2>
         <form>

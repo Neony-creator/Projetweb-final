@@ -45,7 +45,7 @@
 }
 
 #section1{
-
+    padding : 1em;
 }
 
 #section2{
@@ -94,3 +94,12 @@
 
 }
 
+@media (max-width: 480px) {
+    #section1 {
+        float : none;
+    }
+    body{
+        font-size: 0.5em;
+    }
+
+}
