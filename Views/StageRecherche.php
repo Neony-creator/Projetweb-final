@@ -31,7 +31,7 @@ if (!$error) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="/Public/css/style.css" />
     <link rel="stylesheet" href="/Public/css/stage_recherche.css" />
-
+    <script src="/Public/js/log.js"> </script>
     <title>PROJET WEB, groupe 4</title>
 </head>
 <section>
@@ -114,22 +114,22 @@ if (!$error) {
 
                     <div class="form-group">
                         <label for="Nom">Nom du stage</label>
-                        <input type="text" class="form-control" id="Nom" name='Nom' placeholder="Stage web design">
+                        <input type="text" class="form-control" id="Nom" name='Nom' placeholder="Stage web design" onkeypress="verifierCaracteres(event) ; return false; ">
                     </div>
 
                     <div class="form-group">
                         <label for="Nom de l'entreprise">Nom de l'entreprise</label>
-                        <input type="text" class="form-control" id="Nom de l'entreprise" name='NomE' placeholder="CESI">
+                        <input type="text" class="form-control" id="Nom de l'entreprise" name='NomE' placeholder="CESI" onkeypress="verifierCaracteres(event) ; return false; ">
                     </div>
 
                     <div class="form-group">
                         <label for="Secteur d'activité">Secteur d'activité</label>
-                        <input type="text" class="form-control" name="Secteur" id="Secteur d'activité" ">
+                        <input type="text" class="form-control" name="Secteur" id="Secteur d'activité" onkeypress="verifierCaracteres(event) ; return false; ">
                     </div>
 
                     <div class="form-group">
                         <label for="Ville">Ville</label>
-                        <input type="number" class="form-control" id="Ville" name='Ville' placeholder="Strasbourg">
+                        <input type="number" class="form-control" id="Ville" name='Ville' placeholder="Strasbourg" onkeypress="verifierCaracteres(event) ; return false; ">
                     </div>
                     <div class="form-group">
                         <label for="Durée">Durée du stage</label>
@@ -148,15 +148,15 @@ if (!$error) {
 
                     <div class="form-group">
                         <label for="Date de début">Date de début</label>
-                        <input type="text" class="form-control" id="Date de début" NAME="Ddébut" placeholder="04/04/2022">
+                        <input type="text" class="form-control" id="Date de début" NAME="Ddébut" placeholder="04/04/2022" onkeypress="verifierCaracteres(event) ; return false; ">
                     </div>
                     <div class="form-group">
                         <label for="Rémunération">Rémunération(€/mois)</label>
-                        <input type="number" class="form-control" id="Rémunération" name='Rémunération' placeholder="1200">
+                        <input type="number" class="form-control" id="Rémunération" name='Rémunération' placeholder="1200" onkeypress="verifierCaracteres(event) ; return false; ">
                     </div>
                     <div class="form-group">
                         <label for="Place">Nombre de place offerte</label>
-                        <input type="number" class="form-control" id="Place" name="NBplace" placeholder="2">
+                        <input type="number" class="form-control" id="Place" name="NBplace" placeholder="2" onkeypress="verifierCaracteres(event) ; return false; ">
                     </div>
 
                     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">

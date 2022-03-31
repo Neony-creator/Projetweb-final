@@ -30,7 +30,7 @@ if (!$error) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="/Public/css/style.css" />
     <link rel="stylesheet" href="/Public/css/entreprise_recherche.css" />
-
+    <script src="/Public/js/log.js"> </script>
     <title>PROJET WEB, groupe 4</title>
 </head>
 <section>
@@ -108,21 +108,21 @@ if (!$error) {
         <form action=EntrepriseRecherche.php method="get">
             <div class="form-group">
                 <label for="nom">Nom de l'entreprise</label>
-                <input type="text" class="form-control" id="nom" name="Nom" >
+                <input type="text" class="form-control" id="Nom" name="Nom" onkeypress="verifierCaracteres(event) ; return false; ">
             </div>
 
             <div class="form-group">
                 <label for="Ville">Ville</label>
-                <input type="text" class="form-control" name="Ville" id="Ville" ">
+                <input type="text" class="form-control" name="Ville" id="Ville" onkeypress="verifierCaracteres(event) ; return false; ">
             </div>
 
             <div class="form-group">
                 <label for="Secteur d'activité">Secteur d'activité</label>
-                <input type="text" class="form-control" name="Secteur" id="Secteur d'activité" ">
+                <input type="text" class="form-control" name="Secteur" id="Secteur d'activité" onkeypress="verifierCaracteres(event) ; return false; ">
             </div>
             <div class="form-group">
                 <label for="NbStagiaire">Nombre de stagiaire</label>
-                <input type="number" name="Nbstagiaire" class="form-control" id="NbStagiaire" >
+                <input type="number" name="Nbstagiaire" class="form-control" id="NbStagiaire" onkeypress="verifierCaracteres(event) ; return false; ">
             </div>
             <label for="Note1">Evaluation des stagiaire</stagiaire></label>
             1 <input type = "radio" id="Note1" name = "sat1" value = "1">
