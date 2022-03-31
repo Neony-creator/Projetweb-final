@@ -50,10 +50,10 @@
                             <a class="nav-link" href="Login.php">Connection</a>
                         </li>
                         <li class="nav-item" style="padding-right : 2em;">
-                            <a class="nav-link" href="#">Entreprise</a>
+                            <a class="nav-link" href="EntrepriseAffichage.php">Entreprise</a>
                         </li>
                         <li class="nav-item" style="padding-right : 2em;">
-                            <a class="nav-link" href="#">Stage</a>
+                            <a class="nav-link" href="StageAffichage.php">Stage</a>
                         </li>
                         <li class="nav-item" style="padding-right : 2em;">
                             <a class="nav-link" href="Candidature.php">Candidature</a>
@@ -65,9 +65,9 @@
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                 <li><a class="dropdown-item" href="EntrepriseGestion.php">Gestion entreprise</a></li>
                                 <li><a class="dropdown-item" href="StageGestion.php">Gestion stage</a></li>
-                                <li><a class="dropdown-item" href="#">Gestion etudiant</a></li>
+                                <li><a class="dropdown-item" href="UtilisateurGestion.php">Gestion etudiant</a></li>
                                 <li><a class="dropdown-item" href="#">Gestion délégué</a></li>
-                                <li><a class="dropdown-item" href="#">Gestion pilote</a></li>
+                                <li><a class="dropdown-item" href="UtilisateurGestion.php">Gestion pilote</a></li>
                             </ul>
                     </ul>
                 </div>
