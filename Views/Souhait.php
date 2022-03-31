@@ -45,14 +45,14 @@ $results = $query->fetchALL(PDO::FETCH_OBJ);
     <!-- Bouton Wish-list -->
     <div id="WL">
 
-        <a href ="#">
+        <a href ="Souhait.php">
             <button type="button" class="btn btn-lg btn-dark">Wish-list</button>
         </a>
     </div>
 
     <!-- Titre -->
-    <div id="title">
-        <h1>CESI ton stage</h1>
+    <div style="text-align: center">
+        <h1>CESI-TON-STAGE</h1>
     </div>
 
 </section>
