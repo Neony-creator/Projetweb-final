@@ -111,17 +111,7 @@ $results = $query->fetchALL(PDO::FETCH_OBJ);
                 </tr>
                 <tr>
                     <td>Entreprise : <?= $result-> company_name ?><br/> Competences : <?= $result->skills ?><br/> Note de l'entreprise : <?= $result->trust_of_pilot ?><br/> Secteur d'activite : <?= $result->sector_of_activity ?><br/> Ville : <?= $result-> Town ?> <br/> Duree du stage : <?= $result->internship_duration ?> <br/> Date de debut :<?= $result->start_date ?> <br/> Base de remuneration : <?= $result-> remuneration_basis ?> <br/> Nombre de place offertes : <?= $result-> number_of_places_offered  ?> </td>
-                    <td>En quoi consiste ce stage ?<br/> <?= $result-> description ?> <br/><!--<br/><br/><br/><br/><br/><br/><br/>-->
-                        <form>
-                            <label for="Note">Mettre une note</label>
-                            1 <input type = "radio" id="Note" name = "sat" value = "1">
-                            2 <input type = "radio" id="Note" name = "sat" value = "2">
-                            3 <input type = "radio" id="Note" name = "sat" value = "3">
-                            4 <input type = "radio" id="Note" name = "sat" value = "4">
-                            5 <input type = "radio" id="Note" name = "sat" value = "5">
-                            <input type="submit" id="submit" value="Soumettre">
-                        </form>
-                    </td>
+                    <td>En quoi consiste ce stage ?<br/> <?= $result-> description ?> <br/><!--<br/><br/><br/><br/><br/><br/><br/>--></td>
                 </tr>
             </table>
             <br/>
