@@ -150,7 +150,7 @@ class ManagerUtilisateur extends ManagerBdd
         $bdd = self::bdd();
         $query = $bdd->prepare("SELECT id_user,first_name, user_name, facility, login, password, roles, permission, promotion, validation_step from users 
         NATURAL join supervised NATURAL join promotion NATURAL join define NATURAL join roles natural join apply 
-        where like first_name=COALESCE(NULLIF('$this->prenom%',''),first_name) 
+        where first_name=COALESCE(NULLIF('$this->prenom',''),first_name) 
         and user_name = COALESCE(NULLIF('$this->nom',''),user_name) 
         and facility = COALESCE(NULLIF('$this->centre',''),facility) and login = COALESCE(NULLIF('$this->login',''),
         login) and password = COALESCE(NULLIF('$this->pwd',''),password) and roles = COALESCE(NULLIF('$this->role',''),roles) 
@@ -196,6 +196,9 @@ class ManagerUtilisateur extends ManagerBdd
 
         $query1 = $bdd->prepare("DELETE FROM `define` WHERE id_user='$this->id'and id_role='$this->roles'");
         $query1->execute();
+
+        $query3 = $bdd->prepare("DELETE FROM `apply` WHERE id_user='$this->id'");
+        $query3->execute();
 
         $query2 = $bdd->prepare("DELETE FROM `users` WHERE id_user='$this->id'");
         $query2->execute();
