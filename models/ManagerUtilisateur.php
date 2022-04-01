@@ -13,6 +13,8 @@ class ManagerUtilisateur extends ManagerBdd
     private  $role;
     private  $perm;
     private  $promo;
+    private $id;
+    private $roles;
 
     public function getPrenom(): string
     {
@@ -82,6 +84,24 @@ class ManagerUtilisateur extends ManagerBdd
     public function setRole($role)
     {
         $this->role = $role;
+        if ($role == "Administrateur")
+        {
+            $this->roles = "600";
+        }
+        if ($role == "Pilot")
+        {
+            $this->roles = "601";
+        }
+        if ($role == "Delegue")
+        {
+            $this->roles = "602";
+        }
+        if ($role == "Etudiant")
+        {
+            $this->roles = "603";
+        }
+
+
     }
 
     public function setPerm($perm)
@@ -93,6 +113,19 @@ class ManagerUtilisateur extends ManagerBdd
     {
         $this->promo = $promo;
     }
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    public function setPwdHash($psw)
+    {
+        $this->pwd = password_hash($psw, PASSWORD_DEFAULT);
+    }
 
     public function afficherUtilisateur(){
         echo "Prenom : ".$this->getPrenom()."<br>";
@@ -103,6 +136,7 @@ class ManagerUtilisateur extends ManagerBdd
         echo "Role : ".$this->getRole()."<br>";
         echo "Perm : ".$this->getPerm()."<br>";
         echo "Promo : ".$this->getPromo()."<br>";
+        echo "Id : ".$this->getId()."<br>";
     }
 
 
@@ -114,16 +148,62 @@ class ManagerUtilisateur extends ManagerBdd
     public function GetUtilisateur()
     {
         $bdd = self::bdd();
-        $query = $bdd->prepare("SELECT first_name, user_name, facility, login, password, roles, permission, promotion from users 
-        NATURAL join supervised NATURAL join promotion NATURAL join define NATURAL join roles where first_name=COALESCE(NULLIF('$this->prenom',''),first_name) and user_name = COALESCE(NULLIF('$this->nom',''),user_name) 
+        $query = $bdd->prepare("SELECT id_user,first_name, user_name, facility, login, password, roles, permission, promotion, validation_step from users 
+        NATURAL join supervised NATURAL join promotion NATURAL join define NATURAL join roles natural join apply 
+        where first_name=COALESCE(NULLIF('$this->prenom',''),first_name) 
+        and user_name = COALESCE(NULLIF('$this->nom',''),user_name) 
         and facility = COALESCE(NULLIF('$this->centre',''),facility) and login = COALESCE(NULLIF('$this->login',''),
         login) and password = COALESCE(NULLIF('$this->pwd',''),password) and roles = COALESCE(NULLIF('$this->role',''),roles) 
-        and permission = COALESCE(NULLIF('$this->perm',''),permission) and promotion = COALESCE(NULLIF('$this->promo',''),promotion)");
+        and promotion = COALESCE(NULLIF('$this->promo',''),promotion)");
 
         $query->execute();
 
         $results = $query->fetchAll(PDO::FETCH_OBJ);
+
         return $results;
+
+    }
+
+    public function CreateUtilisateur()
+    {
+        $bdd = self::bdd();
+        $query1 = $bdd->prepare("INSERT INTO `users`( `user_name`, `first_name`, `facility`, `login`, `password`) VALUES ('$this->prenom','$this->nom','$this->centre','$this->login','$this->pwd')");
+        $query1->execute();
+
+        $query2 = $bdd->prepare("SELECT `id_user` FROM `users` WHERE user_name=? and first_name=? and facility=? and login=? and password=?");
+        $query2->execute(array($this->prenom,$this->nom,$this->centre,$this->login,$this->pwd));
+        $uid = $query2->fetch(PDO::FETCH_OBJ);
+        $uid = $uid->id_user;
+        $query3 = $bdd->prepare("INSERT INTO `define`(`id_user`, `id_role`, `permission`) VALUES ('$uid','$this->roles ','$this->perm')");
+        $query3->execute();
+
+    }
+
+    public function UpdateUtilisateur()
+    {
+        $bdd = self::bdd();
+        $query1 = $bdd->prepare("UPDATE `users` SET `user_name`='$this->prenom',`first_name`='$this->nom',`facility`='$this->centre',`login`='$this->login',`password`='$this->pwd' WHERE id_user='$this->id'");
+        $query1->execute();
+
+        $query2 = $bdd->prepare("UPDATE `define` SET `id_role`='$this->roles',`permission`='$this->perm' WHERE id_user='$this->id'");
+        $query2->execute();
+
+    }
+
+    public function DeleteUtilisateur()
+    {
+        $bdd = self::bdd();
+
+        $query1 = $bdd->prepare("DELETE FROM `define` WHERE id_user='$this->id'and id_role='$this->roles'");
+        $query1->execute();
+
+        $query3 = $bdd->prepare("DELETE FROM `apply` WHERE id_user='$this->id'");
+        $query3->execute();
+
+        $query2 = $bdd->prepare("DELETE FROM `users` WHERE id_user='$this->id'");
+        $query2->execute();
+
+
 
     }
 

@@ -1,4 +1,8 @@
 <!doctype html>
+<?php
+$_COOKIE['id_user'] ;
+?>
+
 <html lang="en">
 <head>
     <!-- Required meta tags -->
@@ -65,9 +69,8 @@
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                 <li><a class="dropdown-item" href="#">Gestion entreprise</a></li>
                                 <li><a class="dropdown-item" href="#">Gestion stage</a></li>
-                                <li><a class="dropdown-item" href="#">Gestion etudiant</a></li>
-                                <li><a class="dropdown-item" href="#">Gestion délégué</a></li>
-                                <li><a class="dropdown-item" href="#">Gestion pilote</a></li>
+                                <li><a class="dropdown-item" href="UtilisateurGestion.php">Gestion Utilisateur</a></li>
+
                             </ul>
                     </ul>
                 </div>
@@ -89,7 +92,7 @@
         <!-- texte -->
         <div class="col-sm">
             <div id="coltxt">
-                <h1>  Entreprise ou étudiant? <br>Tout pout vous mettre en contact.</h1>
+                <h1>  Entreprise ou étudiant? <br>Tout pour vous mettre en contact.</h1>
 
                 <p>Lorem ipsum dolor sit amet. Aut modi maxime qui accusantium quis sit animi tempore et dolor tempora. Qui maxime libero qui harum minus et voluptatem amet rem voluptas dolor At facere dolore qui voluptatem quis ea consequatur illo. Id ullam voluptatem ut laborum modi sed provident illo quo porro nesciunt ab fugiat ipsam? Aut dolores saepe est suscipit enim vel voluptates nisi.Ut architecto dolorem quo quos itaque vel velit dolores ut reiciendis illo et voluptatem unde id provident earum? Et alias quos sed consectetur molestiae 33 porro illum. Ut facilis quia qui asperiores fugit est unde nesciunt. Qui quos magnam illum exercitationem est commodi iusto aut alias autem aut sint laudantium et sapiente libero.</p>
             </div>
