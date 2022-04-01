@@ -68,9 +68,8 @@ $_COOKIE['id_user'] ;
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                 <li><a class="dropdown-item" href="#">Gestion entreprise</a></li>
                                 <li><a class="dropdown-item" href="#">Gestion stage</a></li>
-                                <li><a class="dropdown-item" href="#">Gestion etudiant</a></li>
-                                <li><a class="dropdown-item" href="#">Gestion délégué</a></li>
-                                <li><a class="dropdown-item" href="#">Gestion pilote</a></li>
+                                <li><a class="dropdown-item" href="UtilisateurGestion.php">Gestion Utilisateur</a></li>
+
                             </ul>
                     </ul>
                 </div>
