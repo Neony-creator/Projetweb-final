@@ -26,7 +26,7 @@ require_once '../Models/ManagerUtilisateur.php';
     <!-- Bouton Wish-list -->
     <div id="WL">
 
-        <a href ="#">
+        <a href ="Souhait.php">
             <button type="button" class="btn btn-lg btn-dark">Wish-list</button>
         </a>
     </div>
@@ -52,20 +52,28 @@ require_once '../Models/ManagerUtilisateur.php';
                             <a class="nav-link" href="Accueil.php">Acceuil</a>
                         </li>
                         <li class="nav-item " style="padding-right : 2em;">
-                            <a class="nav-link" href="#">Connection</a>
+                            <a class="nav-link" href="Login.php">Connection</a>
                         </li>
                         <li class="nav-item" style="padding-right : 2em;">
-                            <a class="nav-link" href="#">Entreprise</a>
+                            <a class="nav-link" href="EntrepriseAffichage.php">Entreprise</a>
                         </li>
                         <li class="nav-item" style="padding-right : 2em;">
-                            <a class="nav-link" href="#">Stage</a>
+                            <a class="nav-link" href="StageAffichage.php">Stage</a>
                         </li>
                         <li class="nav-item" style="padding-right : 2em;">
-                            <a class="nav-link" href="#">Candidature</a>
+                            <a class="nav-link" href="Candidature.php">Candidature</a>
                         </li>
-                        <li class="nav-item" style="padding-right : 2em;">
-                            <a class="nav-link" href="#">Gestion</a>
-                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Gestion
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <li><a class="dropdown-item" href="EntrepriseGestion.php">Gestion entreprise</a></li>
+                                <li><a class="dropdown-item" href="StageGestion.php">Gestion stage</a></li>
+                                <li><a class="dropdown-item" href="UtilisateurGestion.php">Gestion etudiant</a></li>
+                                <li><a class="dropdown-item" href="#">Gestion délégué</a></li>
+                                <li><a class="dropdown-item" href="UtilisateurGestion.php">Gestion pilote</a></li>
+                            </ul>
                     </ul>
                 </div>
             </div>

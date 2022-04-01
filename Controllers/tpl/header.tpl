@@ -2,9 +2,6 @@
 
 <section class="top">
     <!-- Logo -->
-    <div id="logo">
-        <p> <img src="{$urls.img_url}../web/img/logo.png" alt="logo cesi" title="Qu'est ce qu'il est beau quand même ! "/> </p>
-    </div>
 
     <!-- Bouton Wish-list -->
     <div id="WL">
@@ -37,7 +34,7 @@
                             <a class="nav-link" href="#">Acceuil</a>
                         </li>
                         <li class="nav-item " style="padding-right : 2em;">
-                            <a class="nav-link" href="#">Connection</a>
+                            <a class="nav-link" href="C:/Users/pclau/IdeaProjects/Projetweb-final/Views/Login.php">Connection</a>
                         </li>
                         <li class="nav-item" style="padding-right : 2em;">
                             <a class="nav-link" href="#">Entreprise</a>

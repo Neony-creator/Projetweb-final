@@ -22,6 +22,10 @@
 
 }
 
+#title{
+    text-align: center;
+}
+
 #title1 {
     float: left;
 }

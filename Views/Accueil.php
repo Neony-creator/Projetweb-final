@@ -25,7 +25,7 @@ $_COOKIE['id_user'] ;
     <!-- Bouton Wish-list -->
     <div id="WL">
 
-        <a href ="#">
+        <a href ="Souhait.php">
             <button type="button" class="btn btn-lg btn-dark">Wish-list</button>
         </a>
     </div>
@@ -48,19 +48,19 @@ $_COOKIE['id_user'] ;
                 <div class="collapse navbar-collapse btn-lg " id="mynavbar">
                     <ul class="navbar-nav ">
                         <li class="nav-item" style="padding-right : 2em;">
-                            <a class="nav-link" href="#">Acceuil</a>
+                            <a class="nav-link" href="Accueil.php">Acceuil</a>
                         </li>
                         <li class="nav-item " style="padding-right : 2em;">
-                            <a class="nav-link" href="#">Connection</a>
+                            <a class="nav-link" href="Login.php">Connection</a>
                         </li>
                         <li class="nav-item" style="padding-right : 2em;">
-                            <a class="nav-link" href="#">Entreprise</a>
+                            <a class="nav-link" href="EntrepriseAffichage.php">Entreprise</a>
                         </li>
                         <li class="nav-item" style="padding-right : 2em;">
-                            <a class="nav-link" href="#">Stage</a>
+                            <a class="nav-link" href="StageAffichage.php">Stage</a>
                         </li>
                         <li class="nav-item" style="padding-right : 2em;">
-                            <a class="nav-link" href="#">Candidature</a>
+                            <a class="nav-link" href="Candidature.php">Candidature</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -121,24 +121,26 @@ $_COOKIE['id_user'] ;
         <div class="row">
             <!--Grid column-->
             <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
-                <h5 class="text-uppercase">Footer text</h5>
+                <h5 class="text-uppercase">CESI Strasbourg</h5>
 
                 <p>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste atque ea quis
-                    molestias. Fugiat pariatur maxime quis culpa corporis vitae repudiandae
-                    aliquam voluptatem veniam, est atque cumque eum delectus sint!
+                    67380 Lingolsheim<br>
+                    Parc des Tanneries<br>
+                    Lingolsheim<br>
+                    France
                 </p>
             </div>
             <!--Grid column-->
 
             <!--Grid column-->
-            <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
-                <h5 class="text-uppercase">Footer text</h5>
+            <div style="text-align: center" class="col-lg-6 col-md-12 mb-4 mb-md-0">
+                <h5 class="text-uppercase">Retrouvez l’actualité de CESI sur</h5>
 
                 <p>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste atque ea quis
-                    molestias. Fugiat pariatur maxime quis culpa corporis vitae repudiandae
-                    aliquam voluptatem veniam, est atque cumque eum delectus sint!
+                    <a href="https://twitter.com/CesiStrasbourg">Twitter</a><br>
+                    <a href="https://www.facebook.com/cesistrasbourg/">Facebook</a><br>
+                    <a href="https://www.youtube.com/channel/UCWanyqUivV6rjbTABGFI8pA">Youtube</a><br>
+                    <a href="https://www.instagram.com/campus_cesi/?hl=fr">Instagram</a><br>
                 </p>
             </div>
             <!--Grid column-->
@@ -149,6 +151,8 @@ $_COOKIE['id_user'] ;
 
     <!-- Copyright -->
     <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        <a class="text-dark" href="https://www.economie.gouv.fr/entreprises/site-internet-mentions-obligatoires">Mention légales</a>
+        <br>
         © 2022 Copyright:
         <a class="text-dark" href="https://www.cesi.fr//">Cesi.fr</a>
     </div>
