@@ -23,7 +23,7 @@ class ControllerLogin
                 setcookie('permission', $permission, time()+43200, '/');
                 //echo $_COOKIE['id_user']; test
                 //echo $_COOKIE['permission'];
-                header('location: /Projetweb-final/Views/Accueil.php');
+                header('location: /Projetweb-final/Views/EntrepriseGestion.php');
             }
             else {
                 echo "Password incorrect";

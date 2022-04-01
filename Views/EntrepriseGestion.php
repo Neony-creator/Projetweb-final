@@ -1,6 +1,9 @@
 <!doctype html>
 <?php
-$dsn = 'mysql:dbname=projetweb;localhost';                /*Chaine de connexion avec IP et BDD */
+
+$id_user = $_COOKIE["id_user"];
+
+$dsn = 'mysql:dbname=projetweb;host=127.0.0.1:3306';                /*Chaine de connexion avec IP et BDD */
 $username_bdd = "root";                                                 /*Nom d'utilisateur pour MySQL */
 $password_bdd = "cesi";                                               /*Mot de passe pour MySQL*/
 $error = false;                                                         /*Erreur de connexion à false avant connexion*/
@@ -104,6 +107,8 @@ if (!$error) {
 <body>
 
 
+
+
 <div class="recherche">
     <div class="container">
         <h2>Rechercher & Création</h2>
@@ -134,11 +139,11 @@ if (!$error) {
             5 <input type = "radio" id="Note1" name = "sat1" value = "5">
 
             <label for="Note2">Confiance du pilote</label>
-            1 <input type = "radio" id="Note2" name = "sat2" value = "1">
-            2 <input type = "radio" id="Note2" name = "sat2" value = "2">
-            3 <input type = "radio" id="Note2" name = "sat2" value = "3">
-            4 <input type = "radio" id="Note2" name = "sat2" value = "4">
-            5 <input type = "radio" id="Note2" name = "sat2" value = "5">
+            1 <input type = "radio" id="Note2" name = "sat2" value = "1/5">
+            2 <input type = "radio" id="Note2" name = "sat2" value = "2/5">
+            3 <input type = "radio" id="Note2" name = "sat2" value = "3/5">
+            4 <input type = "radio" id="Note2" name = "sat2" value = "4/5">
+            5 <input type = "radio" id="Note2" name = "sat2" value = "5/5">
 
             <input type="submit" id="submit" name="submit" value="Soumettre">
             <br>
@@ -168,13 +173,14 @@ if (!$error) {
                 <label for="mail">Adresse mail</label>
                 <input type="text" name="mail" class="form-control" id="mail" >
             </div>
-            <div class="form-group">
-                <label for="ID">ID company</label>
-                <input type="number" name="ID" class="form-control" id="ID" >
-            </div>
+
             <br>
 
             <input type="submit" id="creation" name="creation" value="creation">
+
+            <br><br>
+
+            <input type="submit" id="modifier" name="modifier" value="modifier">
         </form>
     </div>
 </div>
@@ -182,6 +188,14 @@ if (!$error) {
 <?php
 
 if (isset($_GET['creation'])) {
+
+    if (isset($_GET['sat1'])) {
+        $EvalStagiaire = $_GET['sat1'];
+    } else $EvalStagiaire = '';
+
+    if (isset($_GET['sat2'])) {
+        $ConfPilote = $_GET['sat2'];
+    } else $ConfPilote = '';
 
     $nom = $_GET['Nom'];
     $ville = $_GET['Ville'];
@@ -194,6 +208,30 @@ if (isset($_GET['creation'])) {
     $Nbrue = $_GET['Nbrue'];
 
 
+    if (!$error) {
+        $query1 = $bdd->prepare("INSERT INTO company(company_name, sector_of_activity, number_of_trainees, mail)values ('$nom','$secteur','$NbStagiaire','$mail');");
+        $query1->execute();
+
+        $query2 = $bdd->prepare("SELECT id_company from company where (company_name=? and sector_of_activity=? and number_of_trainees=? and mail=?)");
+        $query2->execute(array($nom,$secteur,$NbStagiaire,$mail));
+        $res = $query2->fetch(Pdo::FETCH_OBJ);
+
+
+
+
+        $id_company = $res -> id_company;
+
+        $query3 = $bdd->prepare("INSERT INTO location(country, Postal_code, Town, street_name, street_number, id_company)values ('$pays','$code','$ville','$rue','$Nbrue','$id_company')");
+        $query3->execute();
+        $query4 = $bdd->prepare("INSERT INTO evaluate(id_company, id_user, evaluation_of_trainees, trust_of_pilot)values ('$id_company','$id_user','$EvalStagiaire','$ConfPilote');");
+        $query4->execute();
+
+    }
+}
+
+
+if (isset($_GET['modifier'])) {
+
     if (isset($_GET['sat1'])) {
         $EvalStagiaire = $_GET['sat1'];
     } else $EvalStagiaire = '';
@@ -202,19 +240,35 @@ if (isset($_GET['creation'])) {
         $ConfPilote = $_GET['sat2'];
     } else $ConfPilote = '';
 
-    if (!$error) {
-        $query = $bdd->prepare("INSERT INTO company(company_name, sector_of_activity, number_of_trainees, mail)values ('$nom','$secteur','$NbStagiaire','$mail');");
-        $query->execute();
-        $query = $bdd->prepare("SELECT id_company FROM company WHERE company_name = '$nom' AND sector_of_activity = '$secteur' AND number_of_trainees = '$NbStagiaire' AND mail = '$mail' ;");
-        $query->execute();
-        $query = $bdd->prepare("INSERT INTO location(country, Postal_code, Town, street_name, street_number, id_company)values ('$pays','$code','$ville','$rue','$Nbrue',id_company)");
-        $query->execute();
-        /*$query = $bdd->prepare("INSERT INTO evaluate(id_company, id_user, evaluation_of_trainees, trust_of_pilot)values (id_company,id_user,'$EvalStagiaire','$ConfPilote');");
-        $query->execute();*/
+    $nom = $_GET['Nom'];
+    $ville = $_GET['Ville'];
+    $secteur = $_GET['Secteur'];
+    $NbStagiaire = $_GET['Nbstagiaire'];
+    $mail = $_GET['mail'];
+    $code = $_GET['code'];
+    $rue = $_GET['rue'];
+    $pays = $_GET['pays'];
+    $Nbrue = $_GET['Nbrue'];
 
-    }
+    $query1 = $bdd->prepare("UPDATE company SET sector_of_activity = '$secteur', number_of_trainees = '$NbStagiaire', mail = '$mail' WHERE company_name = '$nom';");
+    $query1->execute();
+
+    $query2 = $bdd->prepare("SELECT id_company from company where (company_name=?)");
+    $query2->execute(array($nom));
+    $res = $query2->fetch(Pdo::FETCH_OBJ);
+
+    $id_company = $res -> id_company;
+    echo $id_company;
+
+    $query3 = $bdd->prepare("UPDATE location SET country = '$pays', Postal_code = '$code', Town = '$ville', street_name = '$rue', street_number = '$Nbrue' WHERE id_company = '$id_company'");
+    $query3->execute();
+
+    $query4 = $bdd->prepare("UPDATE evaluate SET evaluation_of_trainees = '$EvalStagiaire', trust_of_pilot = '$ConfPilote' WHERE id_company = '$id_company'");
+    $query4->execute();
+
+
+
 }
-
 
 if (isset($_GET['submit'])){
     $nom = $_GET['Nom'];
@@ -288,7 +342,7 @@ else{
     <div class="entreprise">
 
         <div class="container-fluid">
-            <?php foreach ($results as $e) : ?>
+            <?php foreach ($results as $e) { ?>
                 <div class="row border border-dark border-2">
                     <div class="col-5 border-end border-dark border-2">
                         <p class=" title h2 text-decoration-underline" > Entreprise : <?= $e->company_name ?> </p>
@@ -319,7 +373,7 @@ else{
                     </div>
                 </div>
                 <br>
-            <?php endforeach; ?>
+            <?php }; ?>
         </div>
     </div>
 
